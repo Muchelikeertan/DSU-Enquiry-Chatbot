@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Admission Cell | Enquiry Management Portal</title>
+    <link rel="icon" type="image/x-icon" href="https://www.dsu.edu.in/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dsu-primary: #003366;
+            --dsu-primary-dark: #002244;
+            --dsu-primary-light: #167ac6;
+            --dsu-accent-red: #c73437;
+            --dsu-accent-red-hover: #b02a2d;
+            --dsu-purple: #563993;
+            --dsu-gold: #ffbf00;
+            --dsu-yellow-blink: #ffea00;
+            --dsu-text-dark: #1e293b;
+            --dsu-text-muted: #64748b;
+            --dsu-bg-page: #f4f6fa;
+            --dsu-card-bg: #ffffff;
+            --dsu-border: #e2e8f0;
+            --dsu-footer-bg: #0b1f3a;
+            --status-new: #2563eb;
+            --status-processing: #d97706;
+            --status-called: #7c3aed;
+            --status-visited: #0891b2;
+            --status-on_hold: #64748b;
+            --status-resolved: #059669;
+            --status-closed: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--dsu-bg-page);
+            color: var(--dsu-text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+
+        /* Top Institutional Bar */
+        .dsu-top-bar {
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--dsu-border);
+            padding: 7px 0;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .top-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-brand-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--dsu-primary);
+        }
+
+        .top-brand-text .star {
+            color: var(--dsu-accent-red);
+        }
+
+        .top-links a {
+            color: var(--dsu-primary);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .top-links a:hover {
+            color: var(--dsu-accent-red);
+            text-decoration: underline;
+        }
+
+        /* Main Header / Navbar */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--dsu-gold);
+            box-shadow: 0 2px 10px rgba(0, 51, 102, 0.08);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+        }
+
+        .header-logo-img {
+            max-height: 52px;
+            width: auto;
+        }
+
+        .brand-text-block {
+            border-left: 2px solid var(--dsu-border);
+            padding-left: 16px;
+        }
+
+        .brand-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dsu-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .brand-sub {
+            font-size: 12px;
+            color: var(--dsu-accent-red);
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .user-pill {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--dsu-primary-dark);
+            font-weight: 600;
+        }
+
+        .user-pill .role-badge {
+            background: var(--dsu-gold);
+            color: #78350f;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+
+        .btn-logout {
+            background: var(--dsu-accent-red);
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            background: var(--dsu-accent-red-hover);
+            box-shadow: 0 2px 6px rgba(199, 52, 55, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 24px auto;
+            padding: 0 24px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Metrics Cards */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 18px 20px;
+            border: 1px solid var(--dsu-border);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.08);
+        }
+
+        .metric-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .metric-card.m-total::before { background: var(--dsu-primary); }
+        .metric-card.m-proc::before { background: var(--dsu-gold); }
+        .metric-card.m-called::before { background: var(--dsu-purple); }
+        .metric-card.m-visited::before { background: #06b6d4; }
+        .metric-card.m-resolved::before { background: #10b981; }
+
+        .metric-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--dsu-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dsu-text-dark);
+            margin-top: 6px;
+            line-height: 1.1;
+        }
+
+        /* Content Panel */
+        .panel {
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid var(--dsu-border);
+            border-top: 3px solid var(--dsu-primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--dsu-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: #ffffff;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dsu-primary-dark);
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-refresh {
+            background: var(--dsu-primary);
+            color: #ffffff;
+        }
+
+        .btn-refresh:hover {
+            background: var(--dsu-primary-dark);
+            box-shadow: 0 2px 6px rgba(0, 51, 102, 0.2);
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            padding: 16px 24px;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--dsu-border);
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .filter-group.search-box {
+            flex: 2;
+            min-width: 260px;
+        }
+
+        .filter-group label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--dsu-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-input, .filter-select {
+            padding: 9px 12px;
+            border: 1.5px solid var(--dsu-border);
+            border-radius: 6px;
+            font-size: 13px;
+            background: #ffffff;
+            color: var(--dsu-text-dark);
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .filter-input:focus, .filter-select:focus {
+            border-color: var(--dsu-primary-light);
+            box-shadow: 0 0 0 3px rgba(22, 122, 198, 0.12);
+        }
+
+        /* Table */
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead {
+            background: #f1f5f9;
+        }
+
+        th {
+            padding: 12px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--dsu-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--dsu-border);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--dsu-border);
+            font-size: 13px;
+            vertical-align: middle;
+        }
+
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .student-name {
+            font-weight: 700;
+            color: var(--dsu-primary);
+        }
+
+        .student-contact {
+            font-size: 12px;
+            color: var(--dsu-text-muted);
+            margin-top: 3px;
+        }
+
+        .question-snippet {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #334155;
+            font-size: 12px;
+        }
+
+        /* Status Pills */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .status-pill.new { background: #dbeafe; color: #1e40af; }
+        .status-pill.processing { background: #fef3c7; color: #92400e; }
+        .status-pill.called { background: #ede9fe; color: #5b21b6; }
+        .status-pill.visited { background: #cffafe; color: #155e75; }
+        .status-pill.on_hold { background: #e2e8f0; color: #475569; }
+        .status-pill.resolved { background: #d1fae5; color: #065f46; }
+        .status-pill.closed { background: #f1f5f9; color: #64748b; }
+
+        .btn-manage {
+            background: var(--dsu-primary);
+            color: #ffffff;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .btn-manage:hover {
+            background: var(--dsu-accent-red);
+            box-shadow: 0 2px 6px rgba(199, 52, 55, 0.25);
+        }
+
+        .empty-state {
+            padding: 50px 20px;
+            text-align: center;
+            color: var(--dsu-text-muted);
+            font-size: 14px;
+        }
+
+        /* Modal / Case Review Drawer */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 34, 68, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(3px);
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 920px;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 25px 50px -12px rgba(0, 51, 102, 0.35);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: modalSlide 0.2s ease-out;
+            border: 1px solid var(--dsu-border);
+        }
+
+        @keyframes modalSlide {
+            from { opacity: 0; transform: scale(0.97) translateY(8px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-header {
+            background: var(--dsu-primary);
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--dsu-gold);
+        }
+
+        .modal-header h2 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 26px;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.15s;
+        }
+
+        .modal-close:hover {
+            color: var(--dsu-gold);
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .case-section {
+            background: #f8fafc;
+            border: 1px solid var(--dsu-border);
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+
+        .case-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dsu-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .info-item .label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--dsu-text-muted);
+            text-transform: uppercase;
+        }
+
+        .info-item .val {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dsu-text-dark);
+        }
+
+        .question-box {
+            background: #ffffff;
+            border: 1px solid var(--dsu-border);
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 13px;
+            color: #334155;
+            line-height: 1.5;
+            margin-top: 6px;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .form-control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .form-control-group label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--dsu-text-muted);
+            text-transform: uppercase;
+        }
+
+        .form-control-group input,
+        .form-control-group select,
+        .form-control-group textarea {
+            padding: 9px 12px;
+            border: 1.5px solid var(--dsu-border);
+            border-radius: 6px;
+            font-size: 13px;
+            background: #ffffff;
+            color: var(--dsu-text-dark);
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-control-group textarea {
+            min-height: 70px;
+            resize: vertical;
+        }
+
+        .form-control-group input:focus,
+        .form-control-group select:focus,
+        .form-control-group textarea:focus {
+            border-color: var(--dsu-primary-light);
+            box-shadow: 0 0 0 3px rgba(22, 122, 198, 0.12);
+        }
+
+        .btn-primary {
+            background: var(--dsu-primary);
+            color: #ffffff;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background: var(--dsu-primary-dark);
+            box-shadow: 0 2px 6px rgba(0, 51, 102, 0.2);
+        }
+
+        .btn-accent-red {
+            background: var(--dsu-accent-red);
+            color: #ffffff;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-accent-red:hover {
+            background: var(--dsu-accent-red-hover);
+            box-shadow: 0 2px 6px rgba(199, 52, 55, 0.3);
+        }
+
+        .audit-guarantee {
+            font-size: 11px;
+            color: var(--dsu-text-muted);
+            margin-top: 8px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+            margin-top: 14px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: #cbd5e1;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -24px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 2px var(--dsu-border);
+            background: #94a3b8;
+        }
+
+        .timeline-item.comment .timeline-marker { background: var(--dsu-purple); }
+        .timeline-item.status_change .timeline-marker { background: var(--dsu-gold); }
+        .timeline-item.follow_up .timeline-marker { background: #06b6d4; }
+        .timeline-item.submission .timeline-marker { background: #10b981; }
+
+        .timeline-content {
+            background: #ffffff;
+            border: 1px solid var(--dsu-border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 13px;
+        }
+
+        .timeline-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--dsu-text-muted);
+            margin-bottom: 4px;
+        }
+
+        .timeline-actor {
+            font-weight: 700;
+            color: var(--dsu-primary);
+        }
+
+        .timeline-action {
+            font-weight: 600;
+            color: var(--dsu-text-dark);
+            margin-bottom: 2px;
+        }
+
+        .timeline-details {
+            color: #475569;
+            font-size: 12px;
+            line-height: 1.4;
+            background: #f8fafc;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-top: 6px;
+        }
+
+        /* Footer */
+        .dsu-footer {
+            background: var(--dsu-footer-bg);
+            color: #cbd5e1;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 3px solid var(--dsu-accent-red);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. Top Institutional Notice Bar -->
+    <div class="dsu-top-bar">
+        <div class="top-container">
+            <div class="top-brand-text">
+                <span class="star">★</span>
+                <span>Dayananda Sagar University &bull; Admission Cell Management</span>
+            </div>
+            <div class="top-links">
+                <a href="http://127.0.0.1:5500" target="_blank">Student Enquiry Chatbot (Port 5500)</a>
+                <a href="https://www.dsu.edu.in" target="_blank" rel="noopener">Official University Portal ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Main Header / Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="navbar-brand">
+                <img 
+                    src="https://www.dsu.edu.in/templates/sj_university2/images/styling/default/logo.png" 
+                    alt="Dayananda Sagar University Logo" 
+                    class="header-logo-img"
+                    onerror="this.style.display='none'; document.getElementById('dashLogoFallback').style.display='block';"
+                >
+                <div id="dashLogoFallback" style="display: none; font-weight: 800; font-size: 20px; color: var(--dsu-primary);">
+                    DSU
+                </div>
+                <div class="brand-text-block">
+                    <div class="brand-title">Dayananda Sagar University</div>
+                    <div class="brand-sub">Admission Cell Enquiry Portal</div>
+                </div>
+            </a>
+
+            <div class="navbar-user">
+                <div class="user-pill">
+                    <span id="navStaffName">Admission Staff</span>
+                    <span id="navStaffRole" class="role-badge">STAFF</span>
+                </div>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Main Content Container -->
+    <main class="container">
+        <!-- Metrics Cards -->
+        <section class="metrics-grid">
+            <div class="metric-card m-total">
+                <div class="metric-label">Total Enquiries</div>
+                <div class="metric-val" id="statTotal">0</div>
+            </div>
+            <div class="metric-card m-proc">
+                <div class="metric-label">Processing / Active</div>
+                <div class="metric-val" id="statProcessing">0</div>
+            </div>
+            <div class="metric-card m-called">
+                <div class="metric-label">Called / Contacted</div>
+                <div class="metric-val" id="statCalled">0</div>
+            </div>
+            <div class="metric-card m-visited">
+                <div class="metric-label">Campus Visits</div>
+                <div class="metric-val" id="statVisited">0</div>
+            </div>
+            <div class="metric-card m-resolved">
+                <div class="metric-label">Resolved / Closed</div>
+                <div class="metric-val" id="statResolved">0</div>
+            </div>
+        </section>
+
+        <!-- Enquiries Table Panel -->
+        <section class="panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span>Student Admission Enquiries</span>
+                    <span id="totalBadge" class="status-pill new">0 records</span>
+                </div>
+                <div>
+                    <button id="refreshBtn" class="btn-action btn-refresh">Refresh Data</button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-controls">
+                <div class="filter-group search-box">
+                    <label for="searchInput">Search Applicant / Question</label>
+                    <input type="text" id="searchInput" class="filter-input" placeholder="Search by student name, email, phone, or keywords...">
+                </div>
+
+                <div class="filter-group">
+                    <label for="statusFilter">Status</label>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="new">New</option>
+                        <option value="processing">Processing</option>
+                        <option value="called">Called</option>
+                        <option value="visited">Visited</option>
+                        <option value="on_hold">On Hold</option>
+                        <option value="resolved">Resolved</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="schoolFilter">School / Department</label>
+                    <select id="schoolFilter" class="filter-select">
+                        <option value="">All Schools</option>
+                        <option value="Engineering">School of Engineering</option>
+                        <option value="Commerce">School of Commerce & Mgmt</option>
+                        <option value="Health">School of Health Sciences</option>
+                        <option value="Computer Applications">Computer Applications</option>
+                        <option value="Basic & Applied Sciences">Basic & Applied Sciences</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date & Time</th>
+                            <th>Applicant Details</th>
+                            <th>School & Programme</th>
+                            <th>Student Question</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enquiriesTableBody">
+                        <tr>
+                            <td colspan="7" class="empty-state">Loading enquiries...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- 4. Case Review Modal / Drawer -->
+    <div id="caseModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <h2 id="modalCaseId">Enquiry Case #</h2>
+                    <span id="modalStatusBadge" class="status-pill new">Status</span>
+                </div>
+                <button id="modalCloseBtn" class="modal-close" aria-label="Close Modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Student & Query Dossier -->
+                <div class="case-section">
+                    <div class="case-section-title">Student & Academic Information</div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Student Name</span>
+                            <span class="val" id="modalStudentName">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Email Address</span>
+                            <span class="val" id="modalEmail">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Phone Number</span>
+                            <span class="val" id="modalPhone">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">School / Department</span>
+                            <span class="val" id="modalSchool">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Course / Programme</span>
+                            <span class="val" id="modalCourse">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Submission Timestamp</span>
+                            <span class="val" id="modalSubmittedAt">-</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 14px;">
+                        <span class="label" style="font-size: 11px; font-weight: 700; color: var(--dsu-text-muted); text-transform: uppercase;">Submitted Question / Enquiry</span>
+                        <div class="question-box" id="modalQuestion">-</div>
+                    </div>
+                </div>
+
+                <!-- Update Status Form -->
+                <div class="case-section">
+                    <div class="case-section-title">Update Status & Audit Note</div>
+                    <form id="statusUpdateForm" class="action-row">
+                        <div class="form-control-group" style="max-width: 200px;">
+                            <label for="newStatusSelect">New Status</label>
+                            <select id="newStatusSelect" required>
+                                <option value="new">New</option>
+                                <option value="processing">Processing</option>
+                                <option value="called">Called</option>
+                                <option value="visited">Visited</option>
+                                <option value="on_hold">On Hold</option>
+                                <option value="resolved">Resolved</option>
+                                <option value="closed">Closed</option>
+                            </select>
+                        </div>
+                        <div class="form-control-group" style="flex: 2;">
+                            <label for="statusNoteInput">Audit Reason / Note (Optional)</label>
+                            <input type="text" id="statusNoteInput" placeholder="Reason for status transition...">
+                        </div>
+                        <button type="submit" class="btn-accent-red" id="btnUpdateStatus">Update Status</button>
+                    </form>
+                    <div class="audit-guarantee">
+                        Every status change is permanently timestamped with your staff account credentials.
+                    </div>
+                </div>
+
+                <!-- Record Follow-up Action -->
+                <div class="case-section">
+                    <div class="case-section-title">Record Follow-Up Action</div>
+                    <form id="followUpForm" class="action-row">
+                        <div class="form-control-group" style="max-width: 220px;">
+                            <label for="followUpType">Action Type</label>
+                            <select id="followUpType" required>
+                                <option value="phone_call">Phone Call (Applicant)</option>
+                                <option value="email">Email Sent</option>
+                                <option value="campus_visit">Campus Visit Conducted</option>
+                                <option value="counseling">Admission Counseling</option>
+                                <option value="document_verification">Document Verification</option>
+                                <option value="other">Other Action</option>
+                            </select>
+                        </div>
+                        <div class="form-control-group" style="flex: 2;">
+                            <label for="followUpNotes">Follow-Up Outcome & Notes</label>
+                            <input type="text" id="followUpNotes" required placeholder="Outcome, feedback, or next scheduled contact...">
+                        </div>
+                        <button type="submit" class="btn-primary" id="btnRecordFollowUp">Record Action</button>
+                    </form>
+                </div>
+
+                <!-- Persistent Internal Staff Comments -->
+                <div class="case-section">
+                    <div class="case-section-title">Add Internal Staff Comment</div>
+                    <form id="addCommentForm">
+                        <div class="form-control-group">
+                            <label for="commentTextInput">Internal Note (Confidential to Admission Cell)</label>
+                            <textarea id="commentTextInput" required placeholder="Type notes, fee negotiations, eligibility clarifications, or parent remarks..."></textarea>
+                        </div>
+                        <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <div class="audit-guarantee" style="margin: 0;">
+                                Comments are immutable and append-only. Past comments will never be overwritten.
+                            </div>
+                            <button type="submit" class="btn-accent-red" id="btnAddComment">Post Comment</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Chronological Audit Trail -->
+                <div class="case-section">
+                    <div class="case-section-title">Complete Audit & History Timeline</div>
+                    <div class="timeline" id="auditTimeline">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Global Footer -->
+    <footer class="dsu-footer">
+        &copy; 2026 Dayananda Sagar University &bull; Admission Cell Enquiry Management System &bull; Confidential &bull; Server-Side Audited
+    </footer>
+
+    <script src="/static/js/admin-dashboard.js"></script>
+</body>
+</html>

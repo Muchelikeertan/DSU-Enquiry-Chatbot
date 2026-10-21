@@ -1,0 +1,134 @@
+[
+  {
+    "num": 1,
+    "question": "What is the eligibility criteria and annual fee for B.Sc. Data Science at DSU for the 2026\u201327 academic year?",
+    "intent": "sca_eligibility",
+    "handler": "local",
+    "used_llm": true,
+    "show_enquiry_form": true,
+    "form_policy": "always",
+    "source": "https://www.dsu.edu.in/eligibility",
+    "response_text": "**Answer:**  \nThe B.Sc. Data Science programme for the 2026\u201127 academic year has an annual tuition fee of **\u20b9162,000** (\u20b987,000 for Term\u202f1 and \u20b975,000 for Term\u202f2). The specific eligibility criteria for this programme are not published in the publicly available eligibility tables, so you will need to obtain official confirmation from the DSU Admissions Cell.\n\n**Key details:**\n- **Annual fee:** \u20b9162,000 per year (Term\u202f1\u202f=\u202f\u20b987,000; Term\u202f2\u202f=\u202f\u20b975,000).  \n- **Eligibility:** Not detailed in the public eligibility schedule; please verify the required qualifications (e.g., 10+2 with appropriate subjects and minimum aggregate) with the Admissions Cell.  \n\n**Official sources:**  \n- [DSU Admissions \u2013 Application Procedures & Entrance Exams](https://www.dsu.edu.in/admission) \u2013 provides the portal and contact details for official enquiries.  \n\n**Next step:**  \nFor confirmed eligibility requirements for the B.Sc. Data Science programme, contact the DSU Admissions Cell at **080\u202f46461800** or submit an enquiry using the form on the admissions portal. This will ensure you receive the accurate and up\u2011to\u2011date criteria."
+  },
+  {
+    "num": 2,
+    "question": "What is the annual fee for BCA at DSU for 2026\u201327? Show the first-term and second-term amounts separately.",
+    "intent": "sca_fees",
+    "handler": "local",
+    "used_llm": false,
+    "show_enquiry_form": false,
+    "form_policy": "never",
+    "source": "https://www.dsu.edu.in/eligibility",
+    "response_text": "For 2026-27, the yearly fee for BCA is INR 1,09,500 for Term I and INR 97,500 for Term II, a total of INR 2,07,000 per year. DSU notes fees may change if revised by the Government."
+  },
+  {
+    "num": 3,
+    "question": "What is the difference between the tuition fee, hostel fee, mess fee and transport fee at DSU?",
+    "intent": "ask_which_course",
+    "handler": "canned_response",
+    "used_llm": false,
+    "show_enquiry_form": false,
+    "form_policy": "never",
+    "source": null,
+    "response_text": "Which course or school do you mean? For example BCA, MCA, B.Sc. Data Science, or the School of Law."
+  },
+  {
+    "num": 4,
+    "question": "Who is the Dean of the School of Computer Applications at DSU, and what is their designation?",
+    "intent": "sca_dean",
+    "handler": "local",
+    "used_llm": true,
+    "show_enquiry_form": true,
+    "form_policy": "always",
+    "source": "https://www.dsu.edu.in/academics/schools/law",
+    "response_text": "**Answer:** The official DSU website does not currently list the name or designation of the Dean of the School of Computer Applications.\n\n**Key details:**\n- The dean\u2019s name and designation for the School of Computer Applications are not provided in the verified DSU sources.  \n- For confirmed and up\u2011to\u2011date information, you should contact the DSU Admissions Cell directly.  \n\n**Official sources:**\n- [Dayananda Sagar University \u2013 About Us (Campuses & Contacts)](https://www.dsu.edu.in/about-us/dsu) \u2013 provides general university contact details.  \n\n**Next step:**  \nPlease reach out to the DSU Admissions Cell (phone: 080\u202f4646\u202f1800 / +91\u202f63668\u202f85507) or submit an enquiry through the university\u2019s admission portal to obtain the official name and designation of the Dean of the School of Computer Applications."
+  },
+  {
+    "num": 5,
+    "question": "What is the exact BCA management-quota fee for 2026\u201327? Do not give me the general tuition fee as a substitute.",
+    "intent": "sca_fees",
+    "handler": "local",
+    "used_llm": false,
+    "show_enquiry_form": false,
+    "form_policy": "never",
+    "source": "https://www.dsu.edu.in/eligibility",
+    "response_text": "For 2026-27, the yearly fee for BCA is INR 1,09,500 for Term I and INR 97,500 for Term II, a total of INR 2,07,000 per year. DSU notes fees may change if revised by the Government."
+  },
+  {
+    "num": 6,
+    "question": "For BCA students, what is the hostel fee for boys, and is mess included in that amount?",
+    "intent": "hostel_facilities",
+    "handler": "local_then_llm",
+    "used_llm": true,
+    "show_enquiry_form": true,
+    "form_policy": "always",
+    "source": "https://www.dsu.edu.in/9-explore/1575-hostel-fee",
+    "response_text": "**Answer:**  \nThe official DSU hostel fee for male BCA (SCA\u202fBCA) students includes mess charges as part of the total amount payable for the academic year. However, the exact monetary figure for the boys\u2019 hostel fee is not published in the available university sources, so you will need to obtain the confirmed amount directly from the Admissions Cell.\n\n**Key details:**\n- The DSU hostel facilities (Main Campus, Harohalli) provide separate male and female blocks, a multi\u2011cuisine mess, laundry services, 24/7 security, high\u2011speed Wi\u2011Fi, gym, and healthcare centre.  \n- **Fee composition:** \u201cTotal fee payable covers accommodation, messing, and laundry per academic year.\u201d\u3010Source\u202f1\u3011  \n- The specific amount for the boys\u2019 hostel fee for the BCA programme is **not listed** in the official fee schedule.  \n- Because the BCA programme is taught at the Kudlu\u202fGate City Innovation Campus and hostel accommodation is officially confirmed only for the Main Campus, you should verify the applicable fee and any campus\u2011specific arrangements.\n\n**Next step:**  \nFor the confirmed hostel fee amount for male BCA students (and any campus\u2011specific details), please contact the DSU Admissions Cell or submit an enquiry using the form below. This will ensure you receive the official and up\u2011to\u2011date information.  \n\n[Submit an enquiry to DSU Admissions](https://www.dsu.edu.in/9-explore/1575-hostel-fee)"
+  },
+  {
+    "num": 7,
+    "question": "What are the average package, highest package and placement percentage specifically for B.Sc. Data Science students at DSU? Give the source and reporting year for each figure.",
+    "intent": "sca_placements",
+    "handler": "local_then_llm",
+    "used_llm": true,
+    "show_enquiry_form": true,
+    "form_policy": "always",
+    "source": "https://www.dsu.edu.in/placements/overview-placements",
+    "response_text": "**Answer:**  \n- The DSU placement overview reports a **placement percentage of over\u202f90\u202f%** for its programmes, including B.Sc. Data Science.  \n- The **highest CTC (package) offered to students reaches\u202f30\u202f+\u202fLPA**.  \n- A specific **average package figure for B.Sc. Data Science is not disclosed** in the official placement data; you will need to obtain this detail directly from the university.\n\n**Key details:**  \n- **Placement percentage:**\u202f>\u202f90\u202f%\u202f\u2013\u202fSource:\u202f[Placements, Recruiters & Career Development Centre \u2013 DSU](https://www.dsu.edu.in/placements/overview-placements) (latest data on the page; reporting year not explicitly stated).  \n- **Highest package:**\u202f30\u202f+\u202fLPA\u202f\u2013\u202fSame source as above.  \n- **Average package:**\u202fNot specified in the official placement overview; requires confirmation from DSU.  \n\n**Next step:**  \nFor the exact average salary package for B.Sc. Data Science graduates (and the reporting year of the figures), please contact the **DSU Admissions Cell** or submit an enquiry through the university\u2019s online form. This will ensure you receive the most up\u2011to\u2011date and programme\u2011specific information."
+  },
+  {
+    "num": 8,
+    "question": "Does DSU offer scholarships to B.Sc. Data Science students? Explain only the eligibility and benefits that you can verify from official sources.",
+    "intent": "sca_courses",
+    "handler": "local",
+    "used_llm": false,
+    "show_enquiry_form": false,
+    "form_policy": "never",
+    "source": "https://www.dsu.edu.in/eligibility",
+    "response_text": "Yes. SCA's undergraduate programmes are BCA, BCA in Artificial Intelligence and Data Sciences, B.Sc. Data Science and B.Sc. Cyber Security. Each is a 3-year programme."
+  },
+  {
+    "num": 9,
+    "question": "I completed 12th standard with 60% in the MEC stream. Am I eligible for BCA at DSU, and what documents should I prepare?",
+    "intent": "sca_eligibility",
+    "handler": "local",
+    "used_llm": false,
+    "show_enquiry_form": false,
+    "form_policy": "never",
+    "source": "https://www.dsu.edu.in/eligibility",
+    "response_text": "For BCA, DSU lists: a pass in 10+2, A Level, IB, American 12th grade or an equivalent qualification with at least 45% marks in aggregate. The listed criteria don't name a required stream. For stream-specific questions, please confirm with the admissions helpline (080 46461800 or +91 6366885507)."
+  },
+  {
+    "num": 10,
+    "question": "Tell me about B.Sc. Data Science at DSU, including duration, eligibility, annual fee and career opportunities.",
+    "intent": "sca_course_duration",
+    "handler": "local",
+    "used_llm": true,
+    "show_enquiry_form": true,
+    "form_policy": "always",
+    "source": "https://www.dsu.edu.in/eligibility",
+    "response_text": "**Answer:**  \nThe B.Sc. Data Science programme at Dayananda Sagar University is a three\u2011year undergraduate degree. Eligibility requires a 10+2 (PUC) pass with Mathematics, Statistics, Computer Science, Information Technology or Informatics Practices as a compulsory subject and a minimum of 45\u202f% aggregate (40\u202f% for SC/ST). The annual tuition fee is\u202f\u20b91,62,000 (\u20b987,000 for Term\u202f1 and \u20b975,000 for Term\u202f2). For detailed information on career opportunities, placement records and specific recruiter details, please contact the DSU Placement/Admissions Cell.\n\n**Key details:**\n- **Duration:** 3\u202fyears (full\u2011time)\u202f\u3010Recent conversation context\u3011  \n- **Eligibility:** 10+2/PUC with Mathematics, Statistics, Computer Science, IT or Informatics Practices; minimum 45\u202f% marks (40\u202f% for SC/ST)\u202f\u3010Source\u202f3\u3011  \n- **Annual fee:** \u20b91,62,000 per year (Term\u202f1\u202f\u20b987,000\u202f+\u202fTerm\u202f2\u202f\u20b975,000)\u202f\u3010Recent conversation context\u3011  \n- **Career opportunities:** Specific placement statistics, average/highest packages and recruiter list are not detailed in the publicly available sources; please obtain official confirmation.  \n\n**Official sources:**  \n- [Eligibility Criteria \u2013 B.Sc. Data Science](https://www.dsu.edu.in/computer-applications/bsc-data-science/eligibility-bsc-ds) (Source\u202f3)  \n- General programme information can be accessed via the DSU Admissions portal: https://www.dsu.edu.in/eligibility  \n\n**Next step:**  \nFor confirmed details on career prospects, placement records, and any additional queries, please contact the DSU Admissions Cell at\u202f080\u201146461800\u202for submit an enquiry using the form on the DSU website. This will ensure you receive the most accurate and up\u2011to\u2011date information."
+  },
+  {
+    "num": 11,
+    "question": "I want to know the hostel fee, mess charges and transport fee, but I have not decided which course to join. Can you help me identify the details that need confirmation?",
+    "intent": "fallback",
+    "handler": "llm",
+    "used_llm": true,
+    "show_enquiry_form": true,
+    "form_policy": "always",
+    "source": "https://www.dsu.edu.in/9-explore/1575-hostel-fee",
+    "response_text": "**Answer:**  \nDayananda Sagar University provides on\u2011campus hostel accommodation only at the Main Campus (Harohalli). The hostel fee payable each academic year includes accommodation, mess (food) and laundry services, but the exact monetary amount for the hostel fee, the separate mess charge, and the annual transport fee are not specified in the publicly available fee schedules. These amounts must be confirmed directly with the university.\n\n**Key details:**\n- **Hostel accommodation** \u2013 Available at the Main Campus (Harohalli) and includes rooms, 24/7 security, Wi\u2011Fi, gym, healthcare, laundry and a multi\u2011cuisine mess. The total fee covers accommodation **plus** mess and laundry for the academic year. No specific fee amount is listed on the official page. \u3010[Hostel Fees & Facilities](https://www.dsu.edu.in/9-explore/1575-hostel-fee)\u3011\n- **Mess charges** \u2013 Mess services are part of the overall hostel fee; a separate mess\u2011only charge is not published separately. The exact mess component amount requires official confirmation. \u3010[Hostel Fees & Facilities](https://www.dsu.edu.in/9-explore/1575-hostel-fee)\u3011\n- **Transport fee** \u2013 DSU operates a fleet of buses linking the Main Campus with major Bengaluru hubs. Transport fees are billed annually and vary according to the designated pickup zone, but the precise fee structure is not disclosed on the website. \u3010[Campus Transportation](https://www.dsu.edu.in/campus-life)\u3011\n- **Campus limitation** \u2013 Hostel facilities are confirmed only for the Main Campus. Students attending the City Innovation Campus (Kudlu Gate) should contact the hostel administration desk for any local lodging options. \u3010[Hostel Fees & Facilities](https://www.dsu.edu.in/9-explore/1575-hostel-fee)\u3011\n\n**Next step:**  \nFor the confirmed hostel fee (including mess) and the exact transport fee applicable to your situation, please contact the DSU Admissions Cell or submit an enquiry using the form below. This will allow the university to provide the precise amounts based on the programme and zone you eventually choose.  \n\nYou can submit your enquiry here: **[DSU Admissions Enquiry Form](https://www.dsu.edu.in/admissions/enquiry)**."
+  },
+  {
+    "num": 12,
+    "question": "What is the exact 2026\u201327 management-quota fee for BCA, the hostel fee for boys and the average placement package for B.Sc. Data Science? Separate verified information from anything requiring official confirmation.",
+    "intent": "sca_placements",
+    "handler": "local_then_llm",
+    "used_llm": true,
+    "show_enquiry_form": true,
+    "form_policy": "always",
+    "source": "https://www.dsu.edu.in/9-explore/1575-hostel-fee",
+    "response_text": "**Answer:**  \nThe official sources do not list the exact 2026\u201127 management\u2011quota fee for BCA, the specific hostel fee for boys, or the average placement package for the B.Sc.\u202fData Science programme. Those details need to be confirmed directly with the university.\n\n**Key details:**\n- **BCA tuition fee (general)** \u2013 The standard annual tuition fee for the BCA programme is INR\u202f2,07,000 per year\u3010Source\u202f2\u3011. (This is not the management\u2011quota fee.)\n- **Hostel facilities** \u2013 DSU provides on\u2011campus hostel accommodation at the Main Campus (Harohalli) with separate blocks for male and female students, mess, laundry, Wi\u2011Fi, security, gym, and healthcare services. The total hostel fee covers accommodation, messing, and laundry for the academic year, but the exact amount for boys is not published in the available source\u3010Source\u202f1\u3011.\n- **Placement performance** \u2013 DSU\u2019s Centre for Executive Development and Career Planning reports an overall placement record of over\u202f90\u202f% across programmes. Top recruiters include Autodesk, Bosch\u202fRexroth, Microsoft, Amazon, Cisco, IBM, VMware, Intel, NVIDIA, Infosys, Wipro, Accenture, Cognizant, and Mercedes\u2011Benz. The highest CTC offers exceed\u202f30\u202fLPA\u3010Source\u202f3\u3011. (The average placement package for B.Sc.\u202fData Science is not specified.)\n\n**Next step:**  \nFor the confirmed management\u2011quota fee for BCA, the exact hostel fee for boys, and the average placement package for B.Sc.\u202fData Science, please contact the DSU Admissions Cell or submit an enquiry using the form below:\n\n[DSU Admissions Enquiry Form](https://www.dsu.edu.in/admissions/enquiry)  \n\nYou can also call the Admissions Cell at **080\u202f4646\u202f1800** for official clarification."
+  }
+]

@@ -1,0 +1,1307 @@
+{
+    "meta": {
+        "academic_year": "2026-27",
+        "last_verified": "2026-10-18",
+        "source_policy": "Official DSU pages only. Do not invent fees, locations, faculty names or eligibility. null means not verified.",
+        "status_values": {
+            "source_checked": "The claim was read on the cited official DSU page on last_verified. Re-check periodically.",
+            "source_checked_partial": "The official page covers only part of the answer.",
+            "interpreted_needs_check": "Read from the official page but depends on interpreting the table layout. Confirm visually before relying on it.",
+            "not_verified": "Could not be confirmed from an official page. Use the enquiry form or the LLM lookup.",
+            "dynamic_lookup_required": "Must be retrieved at answer time."
+        },
+        "id_conventions": {
+            "course_id_prefixes": {
+                "sca_": "School of Computer Applications",
+                "soe_": "School of Engineering",
+                "scm_": "Commerce and Management",
+                "sbas_": "Basic and Applied Sciences",
+                "shs_": "Health Sciences",
+                "sadh_": "Arts, Design and Humanities",
+                "sddt_": "Design and Digital Transmedia",
+                "sol_": "Law"
+            },
+            "note": "faq_info course_id values and conversation-context course_id values must use these ids exactly."
+        },
+        "primary_sources": {
+            "fees_eligibility": "https://www.dsu.edu.in/eligibility",
+            "admissions_2026": "https://www.dsu.edu.in/c3/",
+            "sca_home": "https://www.dsu.edu.in/academics/schools/computer-application"
+        },
+        "verification_log": [
+            {
+                "claim": "SCA yearly fees for all 7 programmes (Term I, Term II, total)",
+                "source": "https://www.dsu.edu.in/eligibility",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "Fee is yearly (page heading: Yearly Fee Structure 2026-27)",
+                "source": "https://www.dsu.edu.in/eligibility",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "Durations and Kudlu Gate campus for BCA, MCA, B.Sc./M.Sc. Data Science, B.Sc./M.Sc. Cyber Security",
+                "source": "https://www.dsu.edu.in/c3/",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "BCA in AI and Data Sciences: duration 3 years (6 semesters) and eligibility",
+                "source": "https://www.dsu.edu.in/computer-applications/bca-ai-ds",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "BCA in AI and Data Sciences teaching campus",
+                "source": "https://www.dsu.edu.in/c3/",
+                "status": "not_verified",
+                "note": "Programme absent from the campus-wise list."
+            },
+            {
+                "claim": "BCA and MCA eligibility text",
+                "source": "https://www.dsu.edu.in/eligibility",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "Eligibility for B.Sc. Data Science, B.Sc. Cyber Security, M.Sc. Data Science, M.Sc. Cyber Security",
+                "source": "https://www.dsu.edu.in/eligibility",
+                "status": "not_verified",
+                "note": "No text for these rows in the page text. Third-party sites showed conflicting information and were not used. The page may use merged table cells, so check visually."
+            },
+            {
+                "claim": "MCA and M.Sc. fees belong to the 'Others' (non-PGCET) column",
+                "source": "https://www.dsu.edu.in/eligibility",
+                "status": "interpreted_needs_check",
+                "note": null
+            },
+            {
+                "claim": "SCA Dean is Dr. S. Senthil, Professor and Dean",
+                "source": "https://www.dsu.edu.in/computer-applications/dean-msg-sca",
+                "status": "source_checked",
+                "note": "Also described as Dean and Chairman on his profile page."
+            },
+            {
+                "claim": "SCA: 15 digital classrooms, 200+ university smart classrooms, 2,500+ Computer Science books",
+                "source": "https://www.dsu.edu.in/computer-applications/facilities-sca",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "SCA established 2016-17; MCA launched 2021-22",
+                "source": "https://www.dsu.edu.in/computer-applications/overview-sca",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "SCA vision and mission summary",
+                "source": "https://www.dsu.edu.in/computer-applications/vision-mission-sca",
+                "status": "source_checked_partial",
+                "note": "Vision text confirmed; mission summary should be re-read on the page."
+            },
+            {
+                "claim": "DSU Act 2014, 130-acre main campus, eight schools, NAAC A+ (DSU's own statement)",
+                "source": "https://www.dsu.edu.in/c3/",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "Entrance codes (CET, COMEDK, PGCET)",
+                "source": "https://www.dsu.edu.in/eligibility",
+                "status": "source_checked",
+                "note": null
+            },
+            {
+                "claim": "Kudlu Gate PIN code",
+                "source": "https://www.dsu.edu.in/c3/ and footer of other pages",
+                "status": "source_checked_partial",
+                "note": "Official pages conflict (560068 vs 560114)."
+            },
+            {
+                "claim": "Hostel fee amounts, transport, SCA placement statistics",
+                "source": "official pages checked",
+                "status": "not_verified",
+                "note": null
+            }
+        ]
+    },
+    "university": {
+        "name": "Dayananda Sagar University",
+        "short_name": "DSU",
+        "aliases": [
+            "DSU",
+            "Dayananda Sagar University",
+            "Dayananda Sagar Univ",
+            "DSU Bangalore",
+            "DSU Bengaluru"
+        ],
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "country": "India",
+        "established_year": 2014,
+        "established_how": "Created by an Act of the Karnataka State in 2014.",
+        "ownership_description": "DSU's admissions page describes it as among the top private universities in Karnataka.",
+        "legacy": "Dayananda Sagar Institutions were founded in the 1960s by the late Sri R. Dayananda Sagar (Barrister-at-Law).",
+        "overview": "DSU has eight academic and research schools covering Engineering, Commerce and Management, Computer Applications, Design, Law, Nursing, Journalism and Mass Communication, and Basic and Health Sciences.",
+        "overview_note": "Overview wording as published by DSU. It groups the schools differently from the programme listings in schools[*] below. When naming schools, use schools[*] and say that DSU's own overview words the grouping slightly differently.",
+        "accreditation_claims": [
+            {
+                "claim": "NAAC A+ accredited university (DSU's own statement)",
+                "source": "https://www.dsu.edu.in/c3/",
+                "status": "source_checked"
+            }
+        ],
+        "accreditation_other": {
+            "ugc_aicte_nirf": null,
+            "status": "not_verified",
+            "note": "UGC, AICTE and NIRF details were not confirmed from the pages checked. Do not state them."
+        },
+        "website": "https://www.dsu.edu.in/",
+        "admissions_portal": "https://admissions.dsu.edu.in",
+        "course_fee_eligibility_page": "https://www.dsu.edu.in/eligibility",
+        "source": "https://www.dsu.edu.in/c3/",
+        "status": "source_checked"
+    },
+    "campuses": [
+        {
+            "id": "harohalli",
+            "name": "DSU Main Campus",
+            "role": "teaching_campus",
+            "address": "Devarakaggalahalli, Harohalli, Kanakapura Road, Bengaluru South District, Karnataka - 562112",
+            "area_acres": 130,
+            "distance_note": "About 45 km from Bengaluru city (as stated on the admissions page).",
+            "schools_taught": [
+                "engineering",
+                "health_sciences"
+            ],
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "kudlu_gate",
+            "name": "DSU City Innovation Campus",
+            "role": "teaching_campus",
+            "address_variants": [
+                {
+                    "text": "Kudlu Gate, Srinivasa Nagar, HAL Layout, Singasandra, Hosur Road, Bengaluru - 560068",
+                    "source": "https://www.dsu.edu.in/c3/"
+                },
+                {
+                    "text": "Administrative and Main Admission Office, Kudlu Gate, Hosur Road, Bengaluru - 560114",
+                    "source": "https://www.dsu.edu.in/eligibility"
+                }
+            ],
+            "pincode_note": "Official pages show two different PIN codes (560068 and 560114). Quote the address without a PIN, or mention both.",
+            "schools_taught": [
+                "computer_applications",
+                "commerce_management",
+                "basic_applied_sciences",
+                "arts_design_humanities",
+                "design_digital_transmedia",
+                "law"
+            ],
+            "schools_taught_note": "For computer_applications, only the programmes in the campus-wise list on the admissions page are confirmed here. BCA in Artificial Intelligence and Data Sciences is not in that list, so its teaching campus is unconfirmed.",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "city_admissions_office",
+            "name": "DSU City Admissions Office",
+            "role": "admissions_office_only",
+            "teaching_campus": false,
+            "address": "Gate 2, 6th Floor, University Building, Dental Block, Kumaraswamy Layout, Bengaluru - 560111",
+            "note": "This is an admissions office. Never present it as the place where classes are held.",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        }
+    ],
+    "contacts": {
+        "admissions_helpline": [
+            "080 46461800",
+            "+91 6366885507"
+        ],
+        "additional_city_campus_numbers": [
+            "080 49092800",
+            "+91 7760964277",
+            "8296316737"
+        ],
+        "registrar_office": [
+            "080 4909 2910",
+            "080 4909 2911"
+        ],
+        "research_cell": "080 4909 2912",
+        "international_nri_admissions": [
+            "+91 9606022149",
+            "+91 9606022150",
+            "+91 9606022152"
+        ],
+        "online_degree_programs": "+91 9880147004",
+        "school_of_law_admissions": "9606484800",
+        "national_anti_ragging_helpline": "1800-180-5522",
+        "email": null,
+        "email_note": "Email addresses are obfuscated on the official pages. Use the enquiry form instead of quoting an email.",
+        "source": "https://www.dsu.edu.in/eligibility",
+        "status": "source_checked_partial"
+    },
+    "leadership": {
+        "listed_on_official_leadership_menu": [
+            "Chancellor",
+            "Pro Chancellor",
+            "Vice Chancellor",
+            "Pro Vice Chancellors",
+            "Registrar",
+            "Controller of Examination",
+            "Finance Officer"
+        ],
+        "named_individuals": [
+            {
+                "name": "Prof. R Janardhan",
+                "role": "Pro Vice Chancellor",
+                "source": "https://www.dsu.edu.in/about-us/leadership/pro-vc/prof-janardhan-r",
+                "status": "source_checked"
+            },
+            {
+                "name": "Dr. Prakash S",
+                "role": "Pro Vice Chancellor",
+                "source": "https://www.dsu.edu.in/about-us/leadership/pro-vc/dr-prakash-s",
+                "status": "source_checked"
+            }
+        ],
+        "other_names_status": "dynamic_lookup_required",
+        "leadership_page": "https://www.dsu.edu.in/about-us/dsu"
+    },
+    "schools": [
+        {
+            "id": "engineering",
+            "id_prefix": "soe_",
+            "name": "School of Engineering",
+            "aliases": [
+                "SOE",
+                "Engineering",
+                "School of Engineering"
+            ],
+            "campus_id": "harohalli",
+            "handler": "llm",
+            "programmes": [
+                {
+                    "id": "soe_btech",
+                    "level": "UG",
+                    "degree": "B.Tech",
+                    "aliases": [
+                        "B.Tech",
+                        "BTech",
+                        "B Tech",
+                        "Bachelor of Technology",
+                        "engineering degree"
+                    ],
+                    "duration_years": 4,
+                    "fee_varies_by_specialisation": true,
+                    "specialisations": [
+                        "Computer Science & Engineering",
+                        "CSE (AI & ML)",
+                        "CSE (Data Science)",
+                        "CSE (Cyber Security)",
+                        "CSE (AI & Data Science)",
+                        "CSE (Artificial Intelligence)",
+                        "Computer Science & Medical Engineering",
+                        "Computer Science & Technology",
+                        "AI & Robotics",
+                        "Electronics & Communication Engineering",
+                        "Mechanical Engineering",
+                        "Aerospace Engineering"
+                    ]
+                },
+                {
+                    "id": "soe_mtech",
+                    "level": "PG",
+                    "degree": "M.Tech",
+                    "aliases": [
+                        "M.Tech",
+                        "MTech",
+                        "M Tech",
+                        "Master of Technology"
+                    ],
+                    "duration_years": 2,
+                    "fee_varies_by_specialisation": true,
+                    "specialisations": [
+                        "Computer Science & Engineering",
+                        "CSE (AI & ML)",
+                        "AI & Data Science",
+                        "Artificial Intelligence",
+                        "AI & Robotics",
+                        "Embedded Systems",
+                        "Design Engineering"
+                    ]
+                }
+            ],
+            "source": [
+                "https://www.dsu.edu.in/eligibility",
+                "https://www.dsu.edu.in/c3/"
+            ],
+            "status": "source_checked"
+        },
+        {
+            "id": "computer_applications",
+            "id_prefix": "sca_",
+            "name": "School of Computer Applications",
+            "aliases": [
+                "SCA",
+                "Computer Applications",
+                "School of Computer Applications",
+                "CA department"
+            ],
+            "campus_id": "kudlu_gate",
+            "campus_note": "The school-level campus applies to the programmes confirmed in the campus-wise list. BCA in Artificial Intelligence and Data Sciences (sca_bca_ai_ds) has campus_id null because its teaching campus is not verified.",
+            "handler": "local_then_llm",
+            "programmes_ref": "sca.courses",
+            "status": "source_checked"
+        },
+        {
+            "id": "commerce_management",
+            "id_prefix": "scm_",
+            "name": "School of Commerce and Management",
+            "aliases": [
+                "Commerce",
+                "Management",
+                "Commerce and Management",
+                "School of Commerce & Management Studies"
+            ],
+            "campus_id": "kudlu_gate",
+            "handler": "llm",
+            "programmes": [
+                {
+                    "id": "scm_mba",
+                    "level": "PG",
+                    "degree": "MBA",
+                    "aliases": [
+                        "MBA",
+                        "Master of Business Administration"
+                    ],
+                    "duration_years": 2,
+                    "specialisations": [
+                        "Artificial Intelligence",
+                        "Business Analytics",
+                        "Entrepreneurship",
+                        "Finance Management",
+                        "Human Resource Management",
+                        "Marketing Management",
+                        "Supply Chain Management",
+                        "IT & Systems Management",
+                        "FinTech"
+                    ]
+                },
+                {
+                    "id": "scm_bba",
+                    "level": "UG",
+                    "degree": "BBA",
+                    "aliases": [
+                        "BBA",
+                        "Bachelor of Business Administration"
+                    ],
+                    "duration_years": 3,
+                    "specialisations": [
+                        "Banking, Financial Services & Insurance",
+                        "Business Analytics",
+                        "Data Science & AI",
+                        "Digital Marketing",
+                        "Entrepreneurship",
+                        "Finance",
+                        "Human Resource Management",
+                        "International Business",
+                        "Marketing",
+                        "Retail Operations",
+                        "Supply Chain Management"
+                    ]
+                },
+                {
+                    "id": "scm_bcom",
+                    "level": "UG",
+                    "degree": "B.Com",
+                    "aliases": [
+                        "B.Com",
+                        "BCom",
+                        "Bachelor of Commerce"
+                    ],
+                    "duration_years": 3,
+                    "fee_varies_by_specialisation": true,
+                    "specialisations": [
+                        "Regular",
+                        "ACCA Integrated",
+                        "CMA Integrated",
+                        "With CA Coaching"
+                    ]
+                }
+            ],
+            "source": [
+                "https://www.dsu.edu.in/c3/",
+                "https://www.dsu.edu.in/eligibility"
+            ],
+            "status": "source_checked"
+        },
+        {
+            "id": "basic_applied_sciences",
+            "id_prefix": "sbas_",
+            "name": "School of Basic and Applied Sciences",
+            "aliases": [
+                "Basic Sciences",
+                "Applied Sciences",
+                "SBAS",
+                "Science school"
+            ],
+            "campus_id": "kudlu_gate",
+            "handler": "llm",
+            "programmes": [
+                {
+                    "id": "sbas_bsc",
+                    "level": "UG",
+                    "degree": "B.Sc (Life Sciences)",
+                    "aliases": [
+                        "B.Sc Biotechnology",
+                        "BSc Biotech",
+                        "BSc Biochemistry",
+                        "BSc Microbiology",
+                        "BSc Basic Science"
+                    ],
+                    "duration_years": 3,
+                    "specialisations": [
+                        "Biotechnology, Biochemistry and Genetics",
+                        "Biotechnology, Chemistry and Microbiology",
+                        "Microbiology, Genetics and Biochemistry"
+                    ]
+                },
+                {
+                    "id": "sbas_msc",
+                    "level": "PG",
+                    "degree": "M.Sc (Life Sciences)",
+                    "aliases": [
+                        "M.Sc Biotechnology",
+                        "MSc Biochemistry",
+                        "MSc Microbiology",
+                        "MSc Molecular Biology and Genetics",
+                        "MSc Basic Science"
+                    ],
+                    "duration_years": 2,
+                    "specialisations": [
+                        "Biochemistry",
+                        "Biotechnology",
+                        "Microbiology",
+                        "Molecular Biology and Genetics"
+                    ]
+                }
+            ],
+            "source": [
+                "https://www.dsu.edu.in/c3/",
+                "https://www.dsu.edu.in/eligibility"
+            ],
+            "status": "source_checked"
+        },
+        {
+            "id": "health_sciences",
+            "id_prefix": "shs_",
+            "name": "School of Health Sciences",
+            "aliases": [
+                "Health Sciences",
+                "SHS",
+                "Nursing",
+                "Physiotherapy",
+                "Pharmacy"
+            ],
+            "campus_id": "harohalli",
+            "handler": "llm",
+            "colleges": [
+                {
+                    "name": "College of Allied Health Sciences",
+                    "programmes": [
+                        {
+                            "id": "shs_bsc_ahs",
+                            "level": "UG",
+                            "degree": "B.Sc Allied Health Sciences",
+                            "aliases": [
+                                "BSc AHS",
+                                "Allied Health",
+                                "BSc Radiology",
+                                "BSc Medical Laboratory Technology",
+                                "BSc Cardiac Care Technology",
+                                "BSc Anaesthesia"
+                            ],
+                            "duration_years": null,
+                            "duration_note": "Official pages conflict: 3 years on the fee page, 4 years on the admissions page. Verify before answering.",
+                            "fee_varies_by_specialisation": true,
+                            "specialisations": [
+                                "Medical Radiology & Imaging Technology",
+                                "Medical Laboratory Technology / Sciences",
+                                "Anaesthesia & Operation Theatre Technology",
+                                "Emergency & Trauma Care Technology (also listed as Emergency Medical Services)",
+                                "Cardiac Care Technology"
+                            ]
+                        },
+                        {
+                            "id": "shs_mph",
+                            "level": "PG",
+                            "degree": "Master of Public Health",
+                            "aliases": [
+                                "MPH",
+                                "Master of Public Health"
+                            ],
+                            "duration_years": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "College of Pharmaceutical Sciences",
+                    "programmes": [
+                        {
+                            "id": "shs_bpharm",
+                            "level": "UG",
+                            "degree": "B.Pharm",
+                            "aliases": [
+                                "B.Pharm",
+                                "BPharm",
+                                "B Pharma",
+                                "Bachelor of Pharmacy"
+                            ],
+                            "duration_years": 4
+                        },
+                        {
+                            "id": "shs_mpharm",
+                            "level": "PG",
+                            "degree": "M.Pharm",
+                            "aliases": [
+                                "M.Pharm",
+                                "MPharm",
+                                "M Pharma"
+                            ],
+                            "duration_years": 2,
+                            "specialisations": [
+                                "Pharmaceutics",
+                                "Pharmacology"
+                            ]
+                        },
+                        {
+                            "id": "shs_pharmd",
+                            "level": "PG",
+                            "degree": "Pharm.D",
+                            "aliases": [
+                                "Pharm.D",
+                                "PharmD",
+                                "Doctor of Pharmacy"
+                            ],
+                            "duration_years": 6
+                        }
+                    ]
+                },
+                {
+                    "name": "College of Nursing Sciences",
+                    "programmes": [
+                        {
+                            "id": "shs_bsc_nursing",
+                            "level": "UG",
+                            "degree": "B.Sc Nursing",
+                            "aliases": [
+                                "B.Sc Nursing",
+                                "BSc Nursing"
+                            ],
+                            "duration_years": 4
+                        },
+                        {
+                            "id": "shs_pb_bsc_nursing",
+                            "level": "UG",
+                            "degree": "Post Basic B.Sc Nursing",
+                            "aliases": [
+                                "PB BSc Nursing",
+                                "Post Basic Nursing"
+                            ],
+                            "duration_years": 2
+                        },
+                        {
+                            "id": "shs_msc_nursing",
+                            "level": "PG",
+                            "degree": "M.Sc Nursing",
+                            "aliases": [
+                                "M.Sc Nursing",
+                                "MSc Nursing"
+                            ],
+                            "duration_years": 2,
+                            "specialisations": [
+                                "Medical Surgical Nursing",
+                                "Child Health Nursing",
+                                "Mental Health Nursing",
+                                "Obstetrics and Gynaecological Nursing",
+                                "Community Health Nursing"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "College of Physiotherapy",
+                    "programmes": [
+                        {
+                            "id": "shs_bpt",
+                            "level": "UG",
+                            "degree": "BPT",
+                            "aliases": [
+                                "BPT",
+                                "Bachelor of Physiotherapy"
+                            ],
+                            "duration_years": 4,
+                            "duration_note": "Fee page states 4 years plus 1 year internship; admissions page states 4 years."
+                        },
+                        {
+                            "id": "shs_mpt",
+                            "level": "PG",
+                            "degree": "MPT",
+                            "aliases": [
+                                "MPT",
+                                "Master of Physiotherapy"
+                            ],
+                            "duration_years": 2,
+                            "specialisations": [
+                                "Musculoskeletal Science",
+                                "Neuroscience",
+                                "Cardio-Pulmonary Science",
+                                "Sports Science",
+                                "Paediatrics and Neonatal Sciences",
+                                "Obstetrics and Gynaecology Science",
+                                "Community Rehabilitation"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "alias_note": "Bare 'Nursing', 'Physiotherapy' and 'Pharmacy' are school-level aliases because each matches several programmes. Do not resolve them to a single course_id.",
+            "source": [
+                "https://www.dsu.edu.in/c3/",
+                "https://www.dsu.edu.in/eligibility"
+            ],
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "arts_design_humanities",
+            "id_prefix": "sadh_",
+            "name": "School of Arts, Design and Humanities",
+            "aliases": [
+                "Arts",
+                "Humanities",
+                "Journalism school",
+                "Design and Humanities"
+            ],
+            "campus_id": "kudlu_gate",
+            "handler": "llm",
+            "programmes": [
+                {
+                    "id": "sadh_ba_jmc",
+                    "level": "UG",
+                    "degree": "BA Journalism and Mass Communication",
+                    "aliases": [
+                        "BA JMC",
+                        "B.A. JMC",
+                        "Journalism",
+                        "Mass Communication"
+                    ],
+                    "duration_years": 3
+                }
+            ],
+            "source": [
+                "https://www.dsu.edu.in/c3/",
+                "https://www.dsu.edu.in/eligibility"
+            ],
+            "status": "source_checked"
+        },
+        {
+            "id": "design_digital_transmedia",
+            "id_prefix": "sddt_",
+            "name": "School of Design and Digital Transmedia",
+            "aliases": [
+                "Digital Transmedia",
+                "Design school",
+                "B.Des school"
+            ],
+            "campus_id": "kudlu_gate",
+            "handler": "llm",
+            "programmes": [
+                {
+                    "id": "sddt_bdes",
+                    "level": "UG",
+                    "degree": "B.Des",
+                    "aliases": [
+                        "B.Des",
+                        "BDes",
+                        "Bachelor of Design"
+                    ],
+                    "duration_years": 4,
+                    "specialisations": [
+                        "Product Design",
+                        "User Experience Design",
+                        "Animation and VFX",
+                        "Game Design"
+                    ]
+                }
+            ],
+            "source": [
+                "https://www.dsu.edu.in/c3/",
+                "https://www.dsu.edu.in/eligibility"
+            ],
+            "status": "source_checked"
+        },
+        {
+            "id": "law",
+            "id_prefix": "sol_",
+            "name": "School of Law",
+            "aliases": [
+                "Law",
+                "SOL",
+                "Law school"
+            ],
+            "campus_id": "kudlu_gate",
+            "handler": "llm",
+            "programmes": [
+                {
+                    "id": "sol_ba_llb",
+                    "level": "UG",
+                    "degree": "B.A. LL.B (Hons.)",
+                    "aliases": [
+                        "BA LLB",
+                        "B.A. LL.B"
+                    ],
+                    "duration_years": 5
+                },
+                {
+                    "id": "sol_bba_llb",
+                    "level": "UG",
+                    "degree": "B.B.A. LL.B (Hons.)",
+                    "aliases": [
+                        "BBA LLB",
+                        "B.B.A. LL.B"
+                    ],
+                    "duration_years": 5
+                },
+                {
+                    "id": "sol_llb",
+                    "level": "UG",
+                    "degree": "LL.B",
+                    "aliases": [
+                        "LLB",
+                        "LL.B"
+                    ],
+                    "duration_years": 3
+                },
+                {
+                    "id": "sol_llm",
+                    "level": "PG",
+                    "degree": "LL.M",
+                    "aliases": [
+                        "LLM",
+                        "LL.M",
+                        "Master of Laws"
+                    ],
+                    "duration_years": 1
+                }
+            ],
+            "source": [
+                "https://www.dsu.edu.in/c3/",
+                "https://www.dsu.edu.in/eligibility"
+            ],
+            "status": "source_checked"
+        }
+    ],
+    "other_dsu_units": [
+        {
+            "name": "Dr. Chandramma Dayananda Sagar Institute of Medical Education and Research (CDSIMER)",
+            "website": "https://cdsimer.edu.in/",
+            "handler": "llm",
+            "status": "source_checked_partial",
+            "note": "Listed on the official menu; details not checked."
+        },
+        {
+            "name": "DSU Online Degree Programs (BBA, BCA, B.Com)",
+            "website": "https://dsuonline.com/",
+            "status": "source_checked_partial",
+            "note": "Separate from the regular on-campus SCA BCA. Do not mix their fees or details."
+        },
+        {
+            "name": "Executive Education / Executive MBA",
+            "website": "https://www.dsu.edu.in/academics/cee",
+            "status": "source_checked_partial",
+            "note": "Listed on the official menu; details not checked."
+        }
+    ],
+    "sca": {
+        "id": "computer_applications",
+        "name": "School of Computer Applications",
+        "abbreviation": "SCA",
+        "established": "2016-17",
+        "mca_launched": "2021-22",
+        "campus_id": "kudlu_gate",
+        "overview": "The School of Computer Applications prepares students for careers in Information Technology. Programmes offer specialisation tracks in AI, Data Science, Cyber Security, Cloud Computing and Web and Mobile Application Development.",
+        "vision": "To develop innovative and skilled computer professionals through cutting-edge research, education and entrepreneurial initiatives, fostering leadership qualities to address the challenges of emerging technologies.",
+        "mission_summary": "Cutting-edge education and research, state-of-the-art facilities and faculty, and a curriculum updated to match industry needs.",
+        "mission_status": "source_checked_partial",
+        "usp": [
+            "Industry 4.0 aligned curriculum",
+            "Specialisation tracks for career customisation",
+            "Labs and technology infrastructure",
+            "Industry immersion and experiential learning",
+            "One-on-one mentoring",
+            "Placement cell connecting students to companies for internships and placements"
+        ],
+        "pages": {
+            "about": "https://www.dsu.edu.in/computer-applications/overview-sca",
+            "vision_mission": "https://www.dsu.edu.in/computer-applications/vision-mission-sca",
+            "usp": "https://www.dsu.edu.in/computer-applications/usp-sca",
+            "dean_message": "https://www.dsu.edu.in/computer-applications/dean-msg-sca",
+            "faculty": "https://www.dsu.edu.in/computer-applications/faculty-sca",
+            "facilities": "https://www.dsu.edu.in/computer-applications/facilities-sca",
+            "placements": "https://www.dsu.edu.in/computer-applications/placement-sca",
+            "programs": "https://www.dsu.edu.in/computer-applications/programs-sca",
+            "events_dec_2025": "https://www.dsu.edu.in/news-events/events-computer-applications/sca-events-dec-2025"
+        },
+        "dean": {
+            "name": "Dr. S. Senthil",
+            "designation": "Professor and Dean, School of Computer Applications",
+            "also_described_as": "Dean and Chairman of the School of Computer Applications (profile page)",
+            "source": "https://www.dsu.edu.in/computer-applications/dean-msg-sca",
+            "profile_source": "https://www.dsu.edu.in/dr-senthil-s",
+            "status": "source_checked",
+            "disambiguation": "Dr. A. Senthil Kumar is a different faculty member (Professor). Do not confuse the two."
+        },
+        "other_leadership_and_faculty": {
+            "status": "dynamic_lookup_required",
+            "source": "https://www.dsu.edu.in/computer-applications/faculty-sca"
+        },
+        "facilities": {
+            "smart_classrooms_university": "More than 200",
+            "sca_digital_classrooms": 15,
+            "classroom_features": "Projectors, Wi-Fi and facilities supporting hybrid learning",
+            "library_note": "The SCA page states the university library holds over 2,500 books on Computer Science and Applications, plus e-books, international journals and research papers.",
+            "faculty_areas": [
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Data Analytics",
+                "Cloud Computing",
+                "Wireless Networks"
+            ],
+            "source": "https://www.dsu.edu.in/computer-applications/facilities-sca",
+            "status": "source_checked"
+        },
+        "placements": {
+            "summary": "SCA works with the university Training and Placement Cell. A Placement Industry Insight Session was held on 12 December 2025 for MCA third-semester students.",
+            "statistics": null,
+            "statistics_status": "not_verified",
+            "source": "https://www.dsu.edu.in/news-events/events-computer-applications/sca-events-dec-2025",
+            "note": "Do not quote packages, percentages or recruiter names unless retrieved from the official placement pages."
+        },
+        "courses": [
+            {
+                "id": "sca_bca",
+                "name": "BCA",
+                "full_name": "Bachelor of Computer Applications",
+                "aliases": [
+                    "BCA",
+                    "B.C.A",
+                    "Bachelor of Computer Applications",
+                    "bca regular",
+                    "computer applications degree"
+                ],
+                "level": "undergraduate",
+                "mode": "Regular",
+                "duration_years": 3,
+                "campus_id": "kudlu_gate",
+                "campus_status": "source_checked",
+                "eligibility": {
+                    "text": "Pass in 10+2, A Level, IB, American 12th grade or an equivalent qualification with at least 45% marks in aggregate.",
+                    "status": "source_checked"
+                },
+                "fee": {
+                    "term_1": 109500,
+                    "term_2": 97500,
+                    "yearly_total": 207000,
+                    "fee_category": "single listed fee",
+                    "status": "source_checked"
+                },
+                "course_page": "https://www.dsu.edu.in/computer-applications/bca"
+            },
+            {
+                "id": "sca_bca_ai_ds",
+                "name": "BCA in Artificial Intelligence and Data Sciences",
+                "full_name": "Bachelor of Computer Applications (Artificial Intelligence and Data Science)",
+                "aliases": [
+                    "BCA AI DS",
+                    "BCA AI & DS",
+                    "BCA AI and DS",
+                    "BCA in AI and Data Science",
+                    "BCA Artificial Intelligence",
+                    "BCA AIDS",
+                    "BCA data science"
+                ],
+                "level": "undergraduate",
+                "mode": "Regular",
+                "duration_years": 3,
+                "duration_note": "6 semesters",
+                "campus_id": null,
+                "campus_status": "not_verified",
+                "campus_note": "Not in the campus-wise list on the 2026 admissions page. Do not assume Kudlu Gate. Show the enquiry form for location questions.",
+                "eligibility": {
+                    "text": "Pass in PUC / 10+2 with at least 45% marks (40% for SC/ST candidates) from a recognised Board or council, or an equivalent qualification.",
+                    "status": "source_checked"
+                },
+                "fee": {
+                    "term_1": 109500,
+                    "term_2": 97500,
+                    "yearly_total": 207000,
+                    "fee_category": "single listed fee",
+                    "status": "source_checked"
+                },
+                "course_page": "https://www.dsu.edu.in/computer-applications/bca-ai-ds"
+            },
+            {
+                "id": "sca_bsc_ds",
+                "name": "B.Sc. Data Science",
+                "full_name": "Bachelor of Science in Data Science",
+                "aliases": [
+                    "BSc Data Science",
+                    "B.Sc Data Science",
+                    "B.Sc. in Data Science",
+                    "BSc DS",
+                    "Data Science",
+                    "data science course",
+                    "data science programme",
+                    "data science undergraduate"
+                ],
+                "level": "undergraduate",
+                "mode": "Regular",
+                "duration_years": 3,
+                "campus_id": "kudlu_gate",
+                "campus_status": "source_checked",
+                "eligibility": {
+                    "text": null,
+                    "status": "not_verified",
+                    "manual_check_hint": "The fee page may use merged table cells. Confirm visually whether the BCA eligibility text spans this row."
+                },
+                "fee": {
+                    "term_1": 87000,
+                    "term_2": 75000,
+                    "yearly_total": 162000,
+                    "fee_category": "single listed fee",
+                    "status": "source_checked"
+                },
+                "course_page": "https://www.dsu.edu.in/computer-applications/bsc-data-science"
+            },
+            {
+                "id": "sca_bsc_cs",
+                "name": "B.Sc. Cyber Security",
+                "full_name": "Bachelor of Science in Cyber Security",
+                "aliases": [
+                    "BSc Cyber Security",
+                    "B.Sc Cyber Security",
+                    "BSc Cybersecurity",
+                    "B.Sc. in Cybersecurity",
+                    "bsc cyber sec"
+                ],
+                "level": "undergraduate",
+                "mode": "Regular",
+                "duration_years": 3,
+                "campus_id": "kudlu_gate",
+                "campus_status": "source_checked",
+                "eligibility": {
+                    "text": null,
+                    "status": "not_verified",
+                    "manual_check_hint": "Same as B.Sc. Data Science: check the table visually."
+                },
+                "fee": {
+                    "term_1": 87000,
+                    "term_2": 75000,
+                    "yearly_total": 162000,
+                    "fee_category": "single listed fee",
+                    "status": "source_checked"
+                },
+                "course_page": "https://www.dsu.edu.in/computer-applications/bsc-cyber-security"
+            },
+            {
+                "id": "sca_mca",
+                "name": "MCA",
+                "full_name": "Master of Computer Applications",
+                "aliases": [
+                    "MCA",
+                    "M.C.A",
+                    "Master of Computer Applications",
+                    "mca course"
+                ],
+                "level": "postgraduate",
+                "mode": "Regular",
+                "duration_years": 2,
+                "campus_id": "kudlu_gate",
+                "campus_status": "source_checked",
+                "pgcet_code": "C520MC",
+                "eligibility": {
+                    "text": "A UG degree in BCA or B.Sc (CS/IT), or B.Sc / B.Com / BA from a recognised university with Mathematics at 10+2 or graduation level (with bridge courses as per university norms), with at least 50% marks in the qualifying examination.",
+                    "status": "source_checked"
+                },
+                "fee": {
+                    "term_1": 177000,
+                    "term_2": 165000,
+                    "yearly_total": 342000,
+                    "fee_category": "others_non_pgcet",
+                    "fee_category_status": "interpreted_needs_check",
+                    "fee_category_note": "The fee table appears to list this under the 'Others' column; no PGCET-column figure appears in the page text.",
+                    "status": "source_checked"
+                },
+                "course_page": "https://www.dsu.edu.in/computer-applications/mca"
+            },
+            {
+                "id": "sca_msc_ds",
+                "name": "M.Sc. Data Science",
+                "full_name": "Master of Science in Data Science",
+                "aliases": [
+                    "MSc Data Science",
+                    "M.Sc Data Science",
+                    "M.Sc. in Data Science",
+                    "MSc DS"
+                ],
+                "level": "postgraduate",
+                "mode": "Regular",
+                "duration_years": 2,
+                "campus_id": "kudlu_gate",
+                "campus_status": "source_checked",
+                "eligibility": {
+                    "text": null,
+                    "status": "not_verified",
+                    "manual_check_hint": "The MCA eligibility text may span this row in the fee table. Confirm visually."
+                },
+                "fee": {
+                    "term_1": 82000,
+                    "term_2": 70000,
+                    "yearly_total": 152000,
+                    "fee_category": "others_non_pgcet",
+                    "fee_category_status": "interpreted_needs_check",
+                    "status": "source_checked"
+                },
+                "course_page": "https://www.dsu.edu.in/computer-applications/msc-data-science"
+            },
+            {
+                "id": "sca_msc_cs",
+                "name": "M.Sc. Cyber Security",
+                "full_name": "Master of Science in Cyber Security",
+                "aliases": [
+                    "MSc Cyber Security",
+                    "M.Sc Cyber Security",
+                    "MSc Cybersecurity",
+                    "M.Sc. in Cybersecurity",
+                    "msc cyber sec"
+                ],
+                "level": "postgraduate",
+                "mode": "Regular",
+                "duration_years": 2,
+                "campus_id": "kudlu_gate",
+                "campus_status": "source_checked",
+                "eligibility": {
+                    "text": null,
+                    "status": "not_verified",
+                    "manual_check_hint": "Same as M.Sc. Data Science: check the table visually."
+                },
+                "fee": {
+                    "term_1": 82000,
+                    "term_2": 70000,
+                    "yearly_total": 152000,
+                    "fee_category": "others_non_pgcet",
+                    "fee_category_status": "interpreted_needs_check",
+                    "status": "source_checked"
+                },
+                "course_page": "https://www.dsu.edu.in/computer-applications/msc-cyber-security"
+            }
+        ],
+        "fee_notes": {
+            "meaning_of_total": "The official page is headed 'Yearly Fee Structure 2026-27'. Yearly total = Term I + Term II. The page does not publish a multi-year total, so never multiply the figure.",
+            "revision_notice": "DSU states that any revision of fees by the Government will apply accordingly.",
+            "instalment_dates": null,
+            "source": "https://www.dsu.edu.in/eligibility"
+        }
+    },
+    "facilities": {
+        "university_level_list": [
+            "Centre for Innovation and Leadership",
+            "Centre for Foreign Language",
+            "Centre for Entrepreneurship with incubation and start-up facility",
+            "Wi-Fi campus",
+            "Learning centre",
+            "Seminar halls and auditorium",
+            "Computer labs",
+            "Digital libraries",
+            "In-campus hostels",
+            "Healthcare facility with insurance",
+            "Research centre",
+            "Fitness centre",
+            "Sports facilities"
+        ],
+        "list_source": "https://www.dsu.edu.in/commerce-management/bba/facilities-features",
+        "list_note": "University-level list from an official DSU page. It does not say which campus has which item.",
+        "library": {
+            "page": "https://www.dsu.edu.in/student-life/library",
+            "status": "source_checked_partial"
+        },
+        "sports": {
+            "document": "https://www.dsu.edu.in/images/University/Sports_Facilities.pdf",
+            "details": null,
+            "status": "not_verified"
+        },
+        "innovation_labs_page": "https://www.dsu.edu.in/coe/innovation-labs",
+        "innovation_labs_named": [
+            "Automotive Systems Lab",
+            "Design and Innovation Centre",
+            "VMware IT Academy",
+            "Automation Technologies",
+            "IBM Software Lab for Emerging Technologies",
+            "NVIDIA - Boston Innovation Lab",
+            "GE Advanced Healthcare Simulation Lab",
+            "Aerospace Engineering Lab",
+            "IBM Centre of Excellence"
+        ],
+        "hostel": {
+            "main_campus_harohalli": {
+                "available": true,
+                "handbook": "https://www.dsu.edu.in/images/Admission/brochures/Harohalli_Hostel_Student_handbook.pdf",
+                "fee_circular": "https://www.dsu.edu.in/images/PDF/Hostel_Circulars_.pdf",
+                "info_site": "https://myposhtell.com/",
+                "fee": null,
+                "fee_status": "not_verified",
+                "status": "source_checked_partial"
+            },
+            "city_innovation_campus_kudlu_gate": {
+                "available": null,
+                "status": "not_verified",
+                "note": "Official hostel pages refer to the Harohalli campus. Availability for Kudlu Gate students is not stated; show the enquiry form."
+            }
+        },
+        "transport": {
+            "details": null,
+            "status": "not_verified",
+            "note": "No transport details found on the pages checked. Do not invent routes or fees."
+        },
+        "other": {
+            "barrier_free_environment_document": "https://www.dsu.edu.in/images/University/Barrier_Free_Env.pdf",
+            "ncc_nss_document": "https://www.dsu.edu.in/images/University/NCC_NSS_Activities.pdf"
+        }
+    },
+    "admissions": {
+        "apply_online": "https://admissions.dsu.edu.in",
+        "dsat_page": "https://www.dsu.edu.in/dsat/",
+        "admission_details_page": "https://www.dsu.edu.in/admission",
+        "course_eligibility_fee_page": "https://www.dsu.edu.in/eligibility",
+        "commencement_dates_page": "https://www.dsu.edu.in/admission/commencement-date",
+        "helpline_page": "https://www.dsu.edu.in/admission/helpline",
+        "year_open": 2026,
+        "codes": {
+            "cet_btech": "E240",
+            "comedk": "E182",
+            "pgcet_mtech": "T970",
+            "pgcet_mba": "B365MB",
+            "pgcet_mca": "C520MC"
+        },
+        "entrance_notes": {
+            "btech": "The fee page lists CET, JEE Main / Uniguage / COMEDK-based ranking, and other categories.",
+            "law_ba_llb_bba_llb": "For B.A. LL.B and B.B.A. LL.B the fee page says CLAT and DSAT (Dayananda Sagar Scholarship Admission Test) scores are accepted, with a scholarship available.",
+            "sca": "The fee page lists a PGCET code for MCA (C520MC). No entrance exam is stated for SCA UG programmes."
+        },
+        "scholarships": {
+            "verified": [
+                "Scholarship marked as available for B.A. LL.B and B.B.A. LL.B (DSAT scores accepted)."
+            ],
+            "sca_scholarships": null,
+            "sca_scholarships_status": "not_verified"
+        },
+        "important_dates": null,
+        "important_dates_status": "dynamic_lookup_required",
+        "status": "source_checked_partial"
+    },
+    "enquiry": {
+        "fee_fallback_message": "Sorry, I couldn't find verified fee details for this course for the 2026-27 academic year. Please fill out the enquiry form below, and the university team can assist you with your query.",
+        "generic_prompt": "I couldn't verify that from official sources. Please fill out the enquiry form below and the university team will assist you.",
+        "show_form_when": [
+            "intent is enquiry",
+            "FAQ form_policy is always",
+            "LLM or lookup cannot verify the answer and form_policy is on_failure",
+            "fee cannot be verified",
+            "student asks for further assistance after a failed lookup"
+        ],
+        "do_not_show_form_when": [
+            "form_policy is never and a verified answer was given",
+            "greeting, thanks, goodbye or chatbot_capabilities"
+        ],
+        "prefill": {
+            "course_name_from_slot": "course_id",
+            "school_or_department_from_slot": "school_id",
+            "question_from": "the student's last message"
+        },
+        "fields": [
+            {
+                "name": "student_name",
+                "label": "Your name",
+                "type": "text",
+                "required": true
+            },
+            {
+                "name": "email",
+                "label": "Email address",
+                "type": "email",
+                "required": true
+            },
+            {
+                "name": "school_or_department",
+                "label": "School or department",
+                "type": "select",
+                "required": true,
+                "options_ref": "schools[*].name",
+                "extra_options": [
+                    "Other / Not sure"
+                ]
+            },
+            {
+                "name": "course_name",
+                "label": "Course name",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "question",
+                "label": "Your question",
+                "type": "textarea",
+                "required": true
+            }
+        ],
+        "storage": "PostgreSQL handled by the Python application (not defined in this file)"
+    },
+    "data_conflicts": [
+        {
+            "topic": "City Innovation Campus PIN code",
+            "detail": "560068 on the admissions page vs 560114 on the footer of other pages."
+        },
+        {
+            "topic": "B.Sc Allied Health Sciences duration",
+            "detail": "3 years on the fee page vs 4 years on the admissions page."
+        },
+        {
+            "topic": "BPT duration",
+            "detail": "Fee page says 4 years plus 1 year internship; admissions page says 4 years."
+        },
+        {
+            "topic": "Emergency programme name",
+            "detail": "Emergency & Trauma Care Technology (fee page) vs Emergency Medical Services (admissions page)."
+        },
+        {
+            "topic": "BCA in AI and Data Sciences campus",
+            "detail": "Not in the campus-wise admissions list; teaching campus unconfirmed."
+        },
+        {
+            "topic": "Course naming",
+            "detail": "Cyber Security vs Cybersecurity; handled through aliases."
+        },
+        {
+            "topic": "Number and grouping of schools",
+            "detail": "The university overview lists Nursing and Journalism as separate areas within 'eight schools'; the programme listings place Nursing under Health Sciences and Journalism under Arts, Design and Humanities. Use the schools list in this file when naming schools, and word answers as the programme listings' grouping (see FAQ UNI_SCHOOLS)."
+        },
+        {
+            "topic": "Third-party fee sites",
+            "detail": "Aggregator sites show different DSU fee figures. Never use them; the official fee page governs."
+        }
+    ]
+}

@@ -1,0 +1,1152 @@
+/* ==============================================================================
+   DSU Official Homepage Design System & Recreated Stylesheet
+   Dayananda Sagar University (DSU) Academic Portal Reproduction
+   ============================================================================== */
+
+:root {
+  --dsu-primary: #003366;
+  --dsu-primary-dark: #002244;
+  --dsu-primary-light: #167ac6;
+  --dsu-accent-red: #c73437;
+  --dsu-accent-red-hover: #b02a2d;
+  --dsu-purple: #563993;
+  --dsu-gold: #ffbf00;
+  --dsu-yellow-blink: #ffea00;
+  --dsu-text-dark: #222222;
+  --dsu-text-muted: #555555;
+  --dsu-text-light: #777777;
+  --dsu-bg-light: #f4f6f9;
+  --dsu-bg-white: #ffffff;
+  --dsu-footer-bg: #0b1f3a;
+  --dsu-footer-sub: #071527;
+  --dsu-border: #e2e8f0;
+  --dsu-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --dsu-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --dsu-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+  --container-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--dsu-text-dark);
+  background-color: #ffffff;
+  line-height: 1.6;
+  font-size: 14px;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--dsu-primary-light);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--dsu-accent-red);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ==============================================================================
+   1. Top Announcement Marquee & Search Bar
+   ============================================================================== */
+.top-notice-bar {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 6px 0;
+  font-size: 12px;
+}
+
+.top-notice-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.marquee-container {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: dsu-marquee 45s linear infinite;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #333;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes dsu-marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.marquee-spacer {
+  margin: 0 15px;
+  display: inline-block;
+  color: #c73437;
+  font-weight: bold;
+}
+
+.marquee-highlight {
+  color: #003366;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.top-search-form {
+  display: flex;
+  align-items: center;
+}
+
+.top-search-form input {
+  padding: 4px 10px;
+  border: 1px solid #ced4da;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  font-size: 11px;
+  width: 140px;
+  outline: none;
+}
+
+.top-search-form input:focus {
+  border-color: var(--dsu-primary-light);
+}
+
+.top-search-form button {
+  background: var(--dsu-primary);
+  color: #fff;
+  border: 1px solid var(--dsu-primary);
+  border-radius: 0 3px 3px 0;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.top-search-form button:hover {
+  background: var(--dsu-primary-light);
+}
+
+/* ==============================================================================
+   2. Main Header (Logo & Utility Links)
+   ============================================================================== */
+.main-header {
+  padding: 12px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.main-header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dsu-logo {
+  display: flex;
+  align-items: center;
+}
+
+.dsu-logo img {
+  height: 70px;
+  width: auto;
+}
+
+.logo-fallback {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-fallback .logo-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--dsu-primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.logo-fallback .logo-sub {
+  font-size: 11px;
+  color: var(--dsu-accent-red);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.header-utility-menu {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.header-utility-menu li a {
+  color: #444;
+  font-weight: 500;
+  padding: 4px 6px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.header-utility-menu li a:hover {
+  color: var(--dsu-primary-light);
+}
+
+.nri-badge {
+  background: #fff3cd;
+  color: #856404 !important;
+  font-weight: 700 !important;
+  padding: 5px 9px !important;
+  border: 1px solid #ffeeba;
+  border-radius: 3px;
+  animation: dsu-pulse 2s infinite;
+}
+
+@keyframes dsu-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 191, 0, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(255, 191, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 191, 0, 0); }
+}
+
+/* ==============================================================================
+   3. Primary Megamenu Navigation
+   ============================================================================== */
+.main-nav {
+  background: var(--dsu-primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: block;
+  color: #ffffff;
+  padding: 13px 14px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-item.active .nav-link {
+  background: var(--dsu-primary-light);
+  color: #ffffff;
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: #ffffff;
+  box-shadow: var(--dsu-shadow-lg);
+  border-top: 3px solid var(--dsu-primary-light);
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1001;
+  border-radius: 0 0 4px 4px;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  position: relative;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 10px 18px;
+  color: #333333;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.dropdown-link:hover {
+  background: #f8fafc;
+  color: var(--dsu-primary-light);
+  padding-left: 22px;
+}
+
+/* Sub-dropdown */
+.sub-dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 220px;
+  background: #ffffff;
+  box-shadow: var(--dsu-shadow-lg);
+  border-top: 3px solid var(--dsu-primary-light);
+  display: none;
+  border-radius: 0 4px 4px 0;
+}
+
+.dropdown-item:hover .sub-dropdown {
+  display: block;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+/* ==============================================================================
+   4. Hero Carousel
+   ============================================================================== */
+.hero-slider-section {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  max-height: 480px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.slide-overlay-content {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  background: rgba(0, 34, 68, 0.85);
+  color: #fff;
+  padding: 24px 30px;
+  border-radius: 6px;
+  max-width: 520px;
+  backdrop-filter: blur(4px);
+  border-left: 5px solid var(--dsu-accent-red);
+}
+
+.slide-overlay-content h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.slide-overlay-content p {
+  font-size: 13px;
+  margin-bottom: 14px;
+  color: #e2e8f0;
+}
+
+.slide-btn {
+  display: inline-block;
+  background: var(--dsu-accent-red);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.slide-btn:hover {
+  background: #fff;
+  color: var(--dsu-accent-red);
+}
+
+/* Carousel Controls */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 51, 102, 0.9);
+}
+
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  right: 40px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--dsu-accent-red);
+  transform: scale(1.2);
+}
+
+/* ==============================================================================
+   5. Floating Right-Rail Contact Sidebar
+   ============================================================================== */
+.sticky-social-bar {
+  position: fixed;
+  right: 0;
+  top: 35vh;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sticky-tab {
+  background: var(--dsu-primary);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 4px 0 0 4px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.sticky-tab:hover {
+  transform: translateX(-5px);
+  color: #fff;
+}
+
+.sticky-tab.apply-now {
+  background: var(--dsu-accent-red);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.sticky-tab.apply-now:hover {
+  background: var(--dsu-accent-red-hover);
+}
+
+.sticky-tab.whatsapp {
+  background: #25d366;
+}
+
+.sticky-tab.phone {
+  background: #003366;
+}
+
+/* ==============================================================================
+   6. Accreditation and Affiliations Section
+   ============================================================================== */
+.section-padding {
+  padding: 50px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--dsu-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.section-title h2 .text-highlight {
+  color: var(--dsu-primary-light);
+}
+
+.section-title p {
+  color: var(--dsu-text-muted);
+  font-size: 15px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.accreditation-banner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: var(--dsu-shadow-sm);
+}
+
+.accreditation-banner img {
+  margin: 0 auto;
+  max-height: 80px;
+}
+
+/* ==============================================================================
+   7. Academic Excellence Across Disciplines (10 Schools Grid)
+   ============================================================================== */
+.schools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.school-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--dsu-shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.school-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--dsu-shadow-lg);
+  border-color: #cbd5e1;
+}
+
+.school-card-img {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.school-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.school-card:hover .school-card-img img {
+  transform: scale(1.05);
+}
+
+.school-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.school-card-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dsu-primary);
+  margin-bottom: 8px;
+}
+
+.school-card-body p {
+  font-size: 13px;
+  color: var(--dsu-text-muted);
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.school-programs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.program-tag {
+  background: #edf2f7;
+  color: var(--dsu-primary);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.school-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: var(--dsu-primary);
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.school-action-btn:hover {
+  background: var(--dsu-primary);
+  color: #ffffff;
+  border-color: var(--dsu-primary);
+}
+
+/* ==============================================================================
+   8. Featured News & Events Carousel
+   ============================================================================== */
+.news-carousel-section {
+  background: var(--dsu-bg-light);
+}
+
+.event-slide-box {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #bfdbfe;
+  display: flex;
+  overflow: hidden;
+  box-shadow: var(--dsu-shadow-md);
+  margin-bottom: 20px;
+}
+
+.event-slide-img {
+  flex: 1;
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e2e8f0;
+}
+
+.event-slide-content {
+  flex: 1;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event-slide-content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dsu-primary);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.event-slide-content p {
+  font-size: 14px;
+  color: var(--dsu-text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.event-read-btn {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--dsu-primary-light);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.event-read-btn:hover {
+  background: var(--dsu-primary);
+  color: #fff;
+}
+
+/* ==============================================================================
+   9. DSU Differentiators & Leadership Section
+   ============================================================================== */
+.differentiators-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Live News Box */
+.live-news-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--dsu-shadow-sm);
+}
+
+.live-news-box h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dsu-primary);
+  border-bottom: 2px solid var(--dsu-accent-red);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.live-news-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.live-news-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 13px;
+}
+
+.live-news-item:last-child {
+  border-bottom: none;
+}
+
+.live-news-item a {
+  color: #333;
+}
+
+.live-news-item a:hover {
+  color: var(--dsu-primary-light);
+}
+
+/* Accordion */
+.accordion-wrapper {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--dsu-shadow-sm);
+}
+
+.accordion-wrapper h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dsu-purple);
+  border-bottom: 2px solid var(--dsu-purple);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 12px 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dsu-purple);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion-header::after {
+  content: "+";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.accordion-item.active .accordion-header::after {
+  content: "−";
+}
+
+.accordion-body {
+  padding: 0 6px 14px 6px;
+  font-size: 13px;
+  color: var(--dsu-text-muted);
+  display: none;
+}
+
+.accordion-item.active .accordion-body {
+  display: block;
+}
+
+/* Leadership Section */
+.leadership-section {
+  margin-top: 40px;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.leader-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--dsu-shadow-sm);
+}
+
+.leader-card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 14px auto;
+  border: 3px solid var(--dsu-primary-light);
+}
+
+.leader-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dsu-primary);
+  margin-bottom: 4px;
+}
+
+.leader-card .leader-role {
+  font-size: 12px;
+  color: var(--dsu-accent-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.leader-card p {
+  font-size: 12px;
+  color: var(--dsu-text-muted);
+  line-height: 1.5;
+}
+
+/* ==============================================================================
+   10. Call to Action Banner
+   ============================================================================== */
+.cta-section {
+  background: linear-gradient(135deg, #003366 0%, #167ac6 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.cta-section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.cta-section p {
+  font-size: 16px;
+  color: #e2e8f0;
+  max-width: 720px;
+  margin: 0 auto 28px auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+  background: #ffffff;
+  color: var(--dsu-primary);
+  padding: 12px 28px;
+  border-radius: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn-primary:hover {
+  background: var(--dsu-gold);
+  color: #000;
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 26px;
+  border-radius: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* ==============================================================================
+   11. Mega University Footer
+   ============================================================================== */
+.mega-footer {
+  background: var(--dsu-footer-bg);
+  color: #a8b8cc;
+  padding-top: 60px;
+  font-size: 13px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+.footer-col h3 {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-col h3::after {
+  content: "";
+  display: block;
+  width: 35px;
+  height: 2px;
+  background: var(--dsu-accent-red);
+  margin-top: 6px;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #cbd5e1;
+}
+
+.footer-col ul li a:hover {
+  color: var(--dsu-gold);
+  padding-left: 4px;
+}
+
+.campus-box {
+  margin-bottom: 18px;
+}
+
+.campus-box h4 {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.campus-box p {
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.footer-sub {
+  background: var(--dsu-footer-sub);
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+}
+
+.footer-sub-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-sub p {
+  color: #94a3b8;
+}
+
+.disclaimer-note {
+  font-style: italic;
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* ==============================================================================
+   12. Responsive Breakpoints
+   ============================================================================== */
+@media (max-width: 992px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--dsu-primary-dark);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: block;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .dropdown-link {
+    color: #e2e8f0;
+    padding-left: 25px;
+  }
+
+  .hero-slider-section {
+    max-height: 380px;
+  }
+
+  .slide img {
+    height: 380px;
+  }
+
+  .differentiators-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-slide-box {
+    flex-direction: column;
+  }
+
+  .event-slide-img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-notice-bar {
+    display: none;
+  }
+
+  .header-utility-menu {
+    display: none;
+  }
+
+  .main-header-flex {
+    justify-content: center;
+  }
+
+  .sticky-social-bar {
+    display: none;
+  }
+
+  .slide-overlay-content {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 16px;
+  }
+
+  .slide-overlay-content h2 {
+    font-size: 18px;
+  }
+}

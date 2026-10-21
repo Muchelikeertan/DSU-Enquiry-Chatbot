@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Admission Cell | Staff Portal Login</title>
+    <link rel="icon" type="image/x-icon" href="https://www.dsu.edu.in/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dsu-primary: #003366;
+            --dsu-primary-dark: #002244;
+            --dsu-primary-light: #167ac6;
+            --dsu-accent-red: #c73437;
+            --dsu-accent-red-hover: #b02a2d;
+            --dsu-gold: #ffbf00;
+            --dsu-yellow-blink: #ffea00;
+            --dsu-text-dark: #1e293b;
+            --dsu-text-muted: #64748b;
+            --dsu-bg-page: #f4f6fa;
+            --dsu-card-bg: #ffffff;
+            --dsu-border: #e2e8f0;
+            --dsu-footer-bg: #0b1f3a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f0f4f8 radial-gradient(circle at 20% 20%, rgba(0, 51, 102, 0.08) 0%, rgba(240, 244, 248, 1) 70%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: var(--dsu-text-dark);
+        }
+
+        /* DSU Top Institutional Bar */
+        .dsu-top-bar {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 8px 0;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .top-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-left-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--dsu-primary);
+        }
+
+        .top-left-badge .star-badge {
+            color: var(--dsu-accent-red);
+        }
+
+        .top-nav-links a {
+            color: var(--dsu-primary);
+            text-decoration: none;
+            margin-left: 16px;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .top-nav-links a:hover {
+            color: var(--dsu-accent-red);
+            text-decoration: underline;
+        }
+
+        /* Main Institutional Header */
+        .dsu-header {
+            background: #ffffff;
+            border-bottom: 3px solid var(--dsu-gold);
+            box-shadow: 0 2px 10px rgba(0, 51, 102, 0.08);
+            padding: 12px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+        }
+
+        .header-logo-img {
+            max-height: 54px;
+            width: auto;
+        }
+
+        .header-titles {
+            border-left: 2px solid #e2e8f0;
+            padding-left: 16px;
+        }
+
+        .header-portal-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dsu-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .header-portal-sub {
+            font-size: 12px;
+            color: var(--dsu-accent-red);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Login Area */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 460px;
+            border-radius: 10px;
+            border: 1px solid var(--dsu-border);
+            box-shadow: 0 15px 35px -5px rgba(0, 51, 102, 0.15), 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            animation: cardSlide 0.3s ease-out;
+        }
+
+        @keyframes cardSlide {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--dsu-primary) 0%, var(--dsu-primary-dark) 100%);
+            color: #ffffff;
+            padding: 24px 28px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--dsu-accent-red);
+            position: relative;
+        }
+
+        .card-header::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--dsu-gold);
+        }
+
+        .card-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .card-header p {
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+
+        .card-body {
+            padding: 28px 28px 20px;
+        }
+
+        .alert {
+            padding: 11px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 18px;
+            display: none;
+            line-height: 1.4;
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dsu-primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--dsu-border);
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            border-color: var(--dsu-primary-light);
+            box-shadow: 0 0 0 3px rgba(22, 122, 198, 0.15);
+        }
+
+        .btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px 18px;
+            background: var(--dsu-primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            background: var(--dsu-primary-dark);
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.25);
+        }
+
+        .btn-demo-login {
+            width: 100%;
+            padding: 12px 18px;
+            background: var(--dsu-accent-red);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-demo-login:hover {
+            background: var(--dsu-accent-red-hover);
+            box-shadow: 0 4px 12px rgba(199, 52, 55, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-submit:disabled, .btn-demo-login:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Demo credentials callout */
+        .demo-box {
+            margin-top: 20px;
+            padding: 12px 14px;
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 4px solid var(--dsu-gold);
+            border-radius: 6px;
+            font-size: 12px;
+            color: #92400e;
+        }
+
+        .demo-box strong {
+            color: #78350f;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .demo-box code {
+            font-family: monospace;
+            background: #fde68a;
+            padding: 1px 5px;
+            border-radius: 3px;
+            color: #78350f;
+        }
+
+        .card-footer {
+            padding: 14px 24px 18px;
+            background: #f8fafc;
+            border-top: 1px solid var(--dsu-border);
+            text-align: center;
+            font-size: 12px;
+            color: var(--dsu-text-muted);
+        }
+
+        .card-footer a {
+            color: var(--dsu-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .card-footer a:hover {
+            color: var(--dsu-accent-red);
+            text-decoration: underline;
+        }
+
+        /* Global Footer */
+        .dsu-footer {
+            background: var(--dsu-footer-bg);
+            color: #cbd5e1;
+            padding: 18px 20px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 3px solid var(--dsu-accent-red);
+        }
+
+        .dsu-footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        .dsu-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. Institutional Top Bar -->
+    <div class="dsu-top-bar">
+        <div class="top-container">
+            <div class="top-left-badge">
+                <span class="star-badge">★</span>
+                <span>Dayananda Sagar University &bull; Admission Cell Portal</span>
+            </div>
+            <div class="top-nav-links">
+                <a href="http://127.0.0.1:5500" target="_blank">Student Chatbot (Port 5500)</a>
+                <a href="https://www.dsu.edu.in" target="_blank" rel="noopener">Official University Website ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Institutional Header -->
+    <header class="dsu-header">
+        <div class="header-container">
+            <a href="/" class="header-brand">
+                <img 
+                    src="https://www.dsu.edu.in/templates/sj_university2/images/styling/default/logo.png" 
+                    alt="Dayananda Sagar University Logo" 
+                    class="header-logo-img"
+                    onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';"
+                >
+                <div id="logoFallback" style="display: none; font-weight: 800; font-size: 20px; color: var(--dsu-primary);">
+                    DSU
+                </div>
+                <div class="header-titles">
+                    <div class="header-portal-name">Dayananda Sagar University</div>
+                    <div class="header-portal-sub">Admission Cell Management System</div>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- 3. Main Login Card -->
+    <main class="main-wrapper">
+        <div class="login-card">
+            <div class="card-header">
+                <h2>Staff Portal Authentication</h2>
+                <p>Secure access for authorized Admissions Officers</p>
+            </div>
+
+            <div class="card-body">
+                <div id="alertBox" class="alert"></div>
+
+                <form id="loginForm" autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">Staff Username</label>
+                        <input type="text" id="username" name="username" required autofocus placeholder="e.g. admin">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    </div>
+
+                    <div class="btn-stack">
+                        <!-- Primary Submit Button -->
+                        <button type="submit" id="submitBtn" class="btn-submit">
+                            <span>Sign In to Dashboard</span>
+                        </button>
+
+                        <!-- Instant Demo Login Button (Required) -->
+                        <button type="button" id="demoLoginBtn" class="btn-demo-login">
+                            <span>⚡ One-Click Demo Login</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="demo-box" id="demoBox">
+                    <strong>Local Development Credentials:</strong>
+                    Username: <code>admin</code> &bull; Password: <code>***REMOVED***</code>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <p>Dayananda Sagar University &bull; Admissions & Outreach Division</p>
+                <p style="margin-top: 6px;">
+                    <a href="http://127.0.0.1:5500/">← Go to Student Enquiry Website (Port 5500)</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 4. Global Footer -->
+    <footer class="dsu-footer">
+        &copy; 2026 Dayananda Sagar University &bull; Shavige Malleshwara Hills, Kumaraswamy Layout, Bengaluru, Karnataka 560111 &bull; Confidential & Server-Audited
+    </footer>
+
+    <script>
+        const API_BASE = window.location.port === '8000' ? '' : 'http://127.0.0.1:8000';
+        const form = document.getElementById('loginForm');
+        const alertBox = document.getElementById('alertBox');
+        const submitBtn = document.getElementById('submitBtn');
+        const demoLoginBtn = document.getElementById('demoLoginBtn');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
+        const DEMO_USER = 'admin';
+        const DEMO_PASS = '***REMOVED***';
+
+        // Auto-prefill credentials in local development mode
+        const isLocalDev = window.location.hostname === '127.0.0.1' || 
+                           window.location.hostname === 'localhost' || 
+                           window.location.port === '5501' || 
+                           window.location.port === '8000';
+
+        if (isLocalDev) {
+            usernameInput.value = DEMO_USER;
+            passwordInput.value = DEMO_PASS;
+        }
+
+        function showAlert(msg, isError = true) {
+            alertBox.textContent = msg;
+            alertBox.className = 'alert ' + (isError ? 'alert-error' : 'alert-success');
+            alertBox.style.display = 'block';
+        }
+
+        async function performLogin(username, password) {
+            alertBox.style.display = 'none';
+
+            if (!username || !password) {
+                showAlert('Please provide both staff username and password.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            demoLoginBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Verifying credentials...</span>';
+
+            try {
+                const resp = await fetch(`${API_BASE}/admin/api/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await resp.json();
+
+                if (!resp.ok) {
+                    throw new Error(data.detail || 'Authentication failed. Please verify credentials.');
+                }
+
+                showAlert('Authentication successful! Opening Admission Cell Dashboard...', false);
+                
+                // Store JWT access token in sessionStorage for API authorization headers
+                if (data.access_token) {
+                    sessionStorage.setItem('dsu_admin_token', data.access_token);
+                    sessionStorage.setItem('dsu_admin_user', JSON.stringify(data.user));
+                }
+
+                setTimeout(() => {
+                    const dashUrl = window.location.port === '8000' ? '/admin/dashboard' : '/dashboard';
+                    window.location.href = dashUrl;
+                }, 500);
+
+            } catch (err) {
+                showAlert(err.message || 'Unable to connect to authentication service.');
+                submitBtn.disabled = false;
+                demoLoginBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Sign In to Dashboard</span>';
+            }
+        }
+
+        // Standard Form Submit
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+            performLogin(username, password);
+        });
+
+        // Dedicated One-Click Demo Login Button
+        demoLoginBtn.addEventListener('click', () => {
+            usernameInput.value = DEMO_USER;
+            passwordInput.value = DEMO_PASS;
+            performLogin(DEMO_USER, DEMO_PASS);
+        });
+    </script>
+</body>
+</html>

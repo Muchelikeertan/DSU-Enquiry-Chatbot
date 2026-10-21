@@ -1,0 +1,899 @@
+{
+    "schema_version": "3.1",
+    "last_updated": "2026-10-18",
+    "meta": {
+        "integrity_rules": [
+            "Intent tags are unique. This file is the only registry of intent tags.",
+            "Every faq_info.faqs[*].intent must be a tag defined in this file.",
+            "Every faq_info.faqs[*].course_id / course_ids value must exist as an id in college_info.sca.courses[*] or in college_info.schools[*] programmes (including colleges[*].programmes[*]).",
+            "A static or form FAQ may only attach to an intent whose handler has faq_static true in handler_compatibility.",
+            "A dynamic FAQ's dynamic_handler must appear in handler_compatibility[intent handler].faq_dynamic_handlers.",
+            "show_enquiry_form is true only when form_policy is always; otherwise it is false.",
+            "A static FAQ whose answer text tells the student to use the enquiry form (or whose answer_mode is form) must have form_policy always. A static FAQ whose answer does not mention the form must have form_policy never. A dynamic FAQ must have form_policy on_failure.",
+            "Every tag used in context_rules must be defined in this file, including internal intents.",
+            "Every status value used in any file must be a key in college_info.meta.status_values.",
+            "If the classifier returns a tag not defined here, look it up in legacy_tag_aliases before falling back."
+        ],
+        "entity_sources": {
+            "course": "college_info.sca.courses[*] and college_info.schools[*] programmes (match on id and aliases)",
+            "school": "college_info.schools[*] (match on id and aliases)"
+        },
+        "status_values_ref": "college_info.meta.status_values"
+    },
+    "legacy_tag_aliases": {
+        "sca_overview": "sca_info",
+        "sca_programmes": "sca_courses",
+        "sca_programs": "sca_courses",
+        "university_contact": "university_contact_address",
+        "sca_fee": "sca_fees",
+        "sca_head": "sca_dean"
+    },
+    "handler_definitions": {
+        "canned_response": "Reply with a message from the intent's 'responses' list.",
+        "local": "Answer only from faq_info.json / college_info.json. No LLM for ordinary supported questions. If there is no confident FAQ match, use the intent's fallback_handler.",
+        "local_then_llm": "Try local data first. If there is no confident match or the needed field is null, call the LLM with official DSU sources.",
+        "llm": "Call the LLM with official DSU sources. The LLM must say when something cannot be verified.",
+        "llm_fee_lookup": "LLM looks up the 2026-27 fee for the exact course or specialisation. If unverified, show college_info.enquiry.fee_fallback_message and the enquiry form.",
+        "context_follow_up": "Resolve using context_rules, then re-route to the target intent. If requires_context is true and no slot is set, route to ask_which_course.",
+        "enquiry_form": "Display the enquiry form."
+    },
+    "handler_compatibility": {
+        "canned_response": {
+            "faq_static": false,
+            "faq_dynamic_handlers": []
+        },
+        "local": {
+            "faq_static": true,
+            "faq_dynamic_handlers": []
+        },
+        "local_then_llm": {
+            "faq_static": true,
+            "faq_dynamic_handlers": [
+                "llm"
+            ]
+        },
+        "llm": {
+            "faq_static": false,
+            "faq_dynamic_handlers": [
+                "llm"
+            ]
+        },
+        "llm_fee_lookup": {
+            "faq_static": false,
+            "faq_dynamic_handlers": [
+                "llm_fee_lookup"
+            ]
+        },
+        "context_follow_up": {
+            "faq_static": false,
+            "faq_dynamic_handlers": []
+        },
+        "enquiry_form": {
+            "faq_static": true,
+            "faq_dynamic_handlers": []
+        },
+        "fallback_handler_allowed_values": [
+            "llm",
+            "llm_fee_lookup"
+        ]
+    },
+    "enquiry_form_rules": {
+        "show_enquiry_form": "Boolean. true = show the form together with this answer.",
+        "form_policy": "String enum: never | always | on_failure.",
+        "allowed_combinations": [
+            {
+                "show_enquiry_form": false,
+                "form_policy": "never",
+                "meaning": "Fully answered; do not show the form."
+            },
+            {
+                "show_enquiry_form": false,
+                "form_policy": "on_failure",
+                "meaning": "Show the form only if the lookup or LLM cannot verify the answer."
+            },
+            {
+                "show_enquiry_form": true,
+                "form_policy": "always",
+                "meaning": "Show the form with this answer."
+            }
+        ],
+        "static_faq_guidance": "Use always when the fact the student asked for is unverified or unpublished, or when the answer itself tells the student to use the form. Use never when the question is answered and the answer only points to an official page or helpline.",
+        "dynamic_faq_guidance": "Use on_failure so the form appears only if the lookup cannot verify the answer."
+    },
+    "context_rules": {
+        "ttl_turns": 6,
+        "slots": [
+            "course_id",
+            "specialisation_text",
+            "school_id",
+            "topic_intent",
+            "last_faq_id",
+            "last_answer_status"
+        ],
+        "update_rules": [
+            "If the message names a course (id or alias), set course_id and set school_id to that course's school. Clear specialisation_text unless the message gives one.",
+            "If the message names only a school, set school_id and clear course_id.",
+            "After answering a non-follow-up intent, set topic_intent to that tag. Do not update topic_intent for greeting, goodbye, thanks, chatbot_capabilities, enquiry, fallback, ask_which_course or ask_what_to_know.",
+            "Store last_faq_id and last_answer_status (a value from college_info.meta.status_values) after every answer.",
+            "Clear all slots after ttl_turns turns without an update.",
+            "An entity named in the current message always overrides the stored context."
+        ],
+        "cue_words": [
+            "it",
+            "its",
+            "that",
+            "this",
+            "that course",
+            "this course",
+            "the same",
+            "there",
+            "that one",
+            "this one"
+        ],
+        "scope_by_course_id_prefix": {
+            "sca_": "sca",
+            "soe_": "other",
+            "scm_": "other",
+            "sbas_": "other",
+            "shs_": "other",
+            "sadh_": "other",
+            "sddt_": "other",
+            "sol_": "other"
+        },
+        "follow_up_resolution": {
+            "follow_up_fee": {
+                "sca": "sca_fees",
+                "other": "other_department_fees",
+                "school_only": "ask_which_course"
+            },
+            "follow_up_eligibility": {
+                "sca": "sca_eligibility",
+                "other": "admissions_eligibility",
+                "school_only": "ask_which_course"
+            },
+            "follow_up_duration": {
+                "sca": "sca_course_duration",
+                "other": "other_department_courses",
+                "school_only": "other_department_courses"
+            },
+            "follow_up_location": {
+                "sca": "sca_location",
+                "other": "course_location",
+                "school_only": "course_location"
+            },
+            "follow_up_more_details": {
+                "sca": {
+                    "bundle": [
+                        "sca_course_duration",
+                        "sca_eligibility",
+                        "sca_fees",
+                        "sca_location"
+                    ]
+                },
+                "other": {
+                    "bundle": [
+                        "other_department_courses",
+                        "course_location",
+                        "other_department_fees"
+                    ]
+                },
+                "school_only": {
+                    "sca_school": "sca_info",
+                    "other_school": "other_department_courses"
+                },
+                "topic_only": {
+                    "action": "repeat_topic_intent",
+                    "detail": "more"
+                }
+            },
+            "follow_up_other_course": {
+                "with_topic": {
+                    "action": "rerun_topic_intent_with_new_course"
+                },
+                "without_topic": "ask_what_to_know"
+            }
+        },
+        "after_failed_lookup": "If last_answer_status is not_verified (or the lookup failed) and the student asks for more, show the enquiry form instead of retrying.",
+        "no_context_clarification": {
+            "intent": "ask_which_course",
+            "quick_replies_ref": "college_info.sca.courses[*].name"
+        },
+        "ask_what_to_know": {
+            "intent": "ask_what_to_know"
+        }
+    },
+    "intents": [
+        {
+            "tag": "greeting",
+            "handler": "canned_response",
+            "responses": [
+                "Hello! I'm the DSU enquiry assistant. Ask me about courses, fees, eligibility, campuses, hostel or admissions at Dayananda Sagar University."
+            ],
+            "patterns": [
+                "Hello",
+                "Hi",
+                "Hey",
+                "Hi there",
+                "Hii",
+                "Helo",
+                "Good morning",
+                "Good afternoon",
+                "Good evening",
+                "Namaste",
+                "Hey there",
+                "Greetings",
+                "Is anyone there?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "handler": "canned_response",
+            "responses": [
+                "Goodbye! Feel free to come back if you have more questions about DSU."
+            ],
+            "patterns": [
+                "Bye",
+                "Goodbye",
+                "See you",
+                "See you later",
+                "Talk to you later",
+                "That's all",
+                "I'm done",
+                "Take care",
+                "Bye bye",
+                "Okay bye",
+                "No more questions"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "handler": "canned_response",
+            "responses": [
+                "You're welcome! Let me know if you need anything else about DSU."
+            ],
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Thanks a lot",
+                "Thank you so much",
+                "Thx",
+                "That helped",
+                "Great, thanks",
+                "Appreciate it",
+                "Perfect, thank you",
+                "Awesome, thanks"
+            ]
+        },
+        {
+            "tag": "chatbot_capabilities",
+            "handler": "canned_response",
+            "responses": [
+                "I can help with Dayananda Sagar University information: School of Computer Applications (courses, fees, eligibility, dean, location, placements, facilities), other schools, admissions, hostel and campus facilities. If I can't verify something, I'll offer an enquiry form."
+            ],
+            "patterns": [
+                "Who are you?",
+                "What can you do?",
+                "What can I ask you?",
+                "Help",
+                "How does this work?",
+                "What do you know?",
+                "What topics can you help with?",
+                "Are you a bot?",
+                "What information do you have?"
+            ]
+        },
+        {
+            "tag": "ask_which_course",
+            "internal": true,
+            "handler": "canned_response",
+            "responses": [
+                "Which course or school do you mean? For example BCA, MCA, B.Sc. Data Science, or the School of Law."
+            ],
+            "patterns": []
+        },
+        {
+            "tag": "ask_what_to_know",
+            "internal": true,
+            "handler": "canned_response",
+            "responses": [
+                "What would you like to know about it: fees, eligibility, duration or location?"
+            ],
+            "patterns": []
+        },
+        {
+            "tag": "university_info",
+            "handler": "local_then_llm",
+            "patterns": [
+                "Tell me about Dayananda Sagar University",
+                "What is DSU?",
+                "Give me information about DSU",
+                "Tell me about the university",
+                "About DSU",
+                "Is DSU a good university?",
+                "When was DSU established?",
+                "Is DSU a private university?",
+                "Overview of Dayananda Sagar University",
+                "Tell me about DSU Bangalore",
+                "What is Dayananda Sagar University known for?"
+            ]
+        },
+        {
+            "tag": "schools_list",
+            "handler": "local_then_llm",
+            "patterns": [
+                "What schools are available at DSU?",
+                "List all schools in DSU",
+                "Which departments does DSU have?",
+                "What faculties are there in DSU?",
+                "How many schools does DSU have?",
+                "What streams are offered at DSU?",
+                "Which other departments are available at DSU?",
+                "Show me all DSU schools",
+                "What are the different schools in the university?"
+            ]
+        },
+        {
+            "tag": "university_contact_address",
+            "handler": "local_then_llm",
+            "patterns": [
+                "What is the address of DSU?",
+                "How can I contact DSU?",
+                "Give me the DSU phone number",
+                "What is the admissions helpline number?",
+                "DSU contact details",
+                "DSU email address",
+                "Where is DSU located?",
+                "How do I reach DSU?",
+                "Admission office contact",
+                "What is the DSU phone number for admissions?"
+            ]
+        },
+        {
+            "tag": "campuses_info",
+            "handler": "local_then_llm",
+            "patterns": [
+                "What campuses does DSU have?",
+                "Tell me about the Harohalli campus",
+                "What is the City Innovation Campus?",
+                "Where is the main campus?",
+                "Difference between Harohalli and Kudlu Gate campus",
+                "How many campuses are there?",
+                "Tell me about the Kudlu Gate campus",
+                "Which campus is in the city?",
+                "How far is the Harohalli campus from Bangalore?"
+            ]
+        },
+        {
+            "tag": "accreditation_rankings",
+            "handler": "local_then_llm",
+            "patterns": [
+                "Is DSU NAAC accredited?",
+                "What is DSU's NAAC grade?",
+                "DSU rankings",
+                "Is DSU UGC approved?",
+                "Is DSU recognised?",
+                "NIRF ranking of DSU",
+                "Is DSU AICTE approved?",
+                "Is the DSU degree valid?"
+            ]
+        },
+        {
+            "tag": "sca_info",
+            "handler": "local",
+            "fallback_handler": "llm",
+            "patterns": [
+                "Tell me about the School of Computer Applications",
+                "What is SCA?",
+                "Give me details about SCA",
+                "Tell me about the Computer Applications department",
+                "About DSU SCA",
+                "When was SCA established?",
+                "What is the vision of SCA?",
+                "What is special about SCA at DSU?",
+                "Why should I join SCA?",
+                "SCA overview",
+                "Tell me about Computer Applications at DSU"
+            ]
+        },
+        {
+            "tag": "sca_courses",
+            "handler": "local",
+            "fallback_handler": "llm",
+            "entity_slots": [
+                "course"
+            ],
+            "patterns": [
+                "What courses are offered by SCA?",
+                "Which courses are available in Computer Applications?",
+                "Does SCA offer BCA?",
+                "Does SCA offer MCA?",
+                "Is BSc Data Science available at DSU?",
+                "What postgraduate courses are available in SCA?",
+                "What undergraduate programmes does SCA have?",
+                "Is there a cyber security course at DSU?",
+                "Does DSU offer BCA in AI and Data Science?",
+                "List all SCA programmes",
+                "Does DSU have MSc Data Science?",
+                "Is MSc Cyber Security available?",
+                "What are the specialisations in SCA?",
+                "Is there an online BCA?"
+            ]
+        },
+        {
+            "tag": "sca_course_duration",
+            "handler": "local",
+            "fallback_handler": "llm",
+            "entity_slots": [
+                "course"
+            ],
+            "patterns": [
+                "What is the duration of BCA?",
+                "How many years is MCA?",
+                "How long is BSc Data Science?",
+                "Duration of MSc Cyber Security",
+                "How many semesters in BCA AI and DS?",
+                "Course duration at SCA",
+                "How long does the BCA course take?",
+                "Is MCA 2 years?",
+                "BSc Cyber Security how many years",
+                "Length of the MSc Data Science programme"
+            ]
+        },
+        {
+            "tag": "sca_fees",
+            "handler": "local",
+            "fallback_handler": "llm_fee_lookup",
+            "entity_slots": [
+                "course"
+            ],
+            "patterns": [
+                "What is the fee for BCA?",
+                "How much does BSc Data Science cost?",
+                "What are the SCA fees for 2026?",
+                "Tell me the MCA fee",
+                "What is the fee for MSc Cybersecurity?",
+                "How much is BCA in Artificial Intelligence and Data Sciences?",
+                "BCA fees 2026-27",
+                "Fee structure of SCA",
+                "What is the Term 1 fee for MCA?",
+                "Is BCA AI and DS fee different from BCA?",
+                "msc cyber sec fee",
+                "bsc ds fees",
+                "How much do I need to pay for MCA at DSU?",
+                "Can I pay the fee in instalments?",
+                "What is the total fee for the whole BCA course?",
+                "SCA fee details"
+            ]
+        },
+        {
+            "tag": "sca_eligibility",
+            "handler": "local",
+            "fallback_handler": "llm",
+            "entity_slots": [
+                "course"
+            ],
+            "patterns": [
+                "What is the eligibility for BCA?",
+                "Who can apply for MCA?",
+                "What are the admission requirements for BSc Data Science?",
+                "Minimum marks required for BCA",
+                "Can I join MCA after BSc?",
+                "Can a commerce student join BCA?",
+                "Do I need maths for MCA?",
+                "Eligibility for BCA AI and DS",
+                "Eligibility criteria for MSc Data Science",
+                "What percentage is needed for BCA?",
+                "Can I apply for MCA with a BCom degree?",
+                "Who is eligible for SCA courses?"
+            ]
+        },
+        {
+            "tag": "sca_dean",
+            "handler": "local",
+            "fallback_handler": "llm",
+            "patterns": [
+                "Who is the Dean of SCA?",
+                "Who heads the School of Computer Applications?",
+                "Tell me the SCA dean's name",
+                "Who is responsible for the Computer Applications department?",
+                "SCA dean",
+                "Name of the head of Computer Applications",
+                "Who is the head of SCA?",
+                "Dean of Computer Applications at DSU",
+                "Who leads the SCA department?"
+            ]
+        },
+        {
+            "tag": "sca_leadership_faculty",
+            "handler": "local_then_llm",
+            "patterns": [
+                "Who are the faculty members in SCA?",
+                "Tell me about SCA professors",
+                "Who teaches BCA at DSU?",
+                "How is the faculty in Computer Applications?",
+                "List of SCA faculty",
+                "Are the SCA teachers experienced?",
+                "What are the faculty specialisations in SCA?",
+                "Where can I see SCA faculty details?"
+            ]
+        },
+        {
+            "tag": "sca_location",
+            "handler": "local",
+            "fallback_handler": "llm",
+            "entity_slots": [
+                "course"
+            ],
+            "patterns": [
+                "Where is SCA located?",
+                "Where are SCA classes held?",
+                "Which campus has BSc Data Science?",
+                "Where is BCA conducted?",
+                "Where is MCA located?",
+                "Is BCA at Harohalli or Kudlu Gate?",
+                "Which campus is MSc Cyber Security on?",
+                "Where will I study BCA?",
+                "Location of the School of Computer Applications",
+                "SCA campus address",
+                "Where is BCA in AI and Data Science taught?",
+                "Are Computer Applications classes at the main campus?"
+            ]
+        },
+        {
+            "tag": "sca_placements",
+            "handler": "local_then_llm",
+            "patterns": [
+                "What are the placements in SCA?",
+                "Does DSU provide placements for BCA?",
+                "What is the average package for MCA?",
+                "Which companies visit DSU for MCA?",
+                "Placement record of Computer Applications",
+                "How good are BCA placements at DSU?",
+                "Highest package in SCA",
+                "Placement statistics for SCA",
+                "Do you have campus recruitment for BCA?",
+                "Which companies recruit from DSU?"
+            ]
+        },
+        {
+            "tag": "sca_internships",
+            "handler": "local_then_llm",
+            "patterns": [
+                "Does SCA provide internships?",
+                "Are there internship opportunities in BCA?",
+                "Industry exposure in SCA",
+                "Do students get live projects?",
+                "Is there industry training in MCA?",
+                "Internship opportunities for MCA students",
+                "Does DSU have industry tie-ups for BCA?",
+                "Will I get internship support?"
+            ]
+        },
+        {
+            "tag": "sca_facilities",
+            "handler": "local",
+            "fallback_handler": "llm",
+            "patterns": [
+                "What facilities does SCA have?",
+                "Does SCA have computer labs?",
+                "Are the classrooms smart classrooms?",
+                "Tell me about the SCA infrastructure",
+                "What labs are there in Computer Applications?",
+                "Does SCA have a library?",
+                "Is there Wi-Fi in the campus?",
+                "Mentoring system in SCA",
+                "What is the infrastructure like for BCA students?"
+            ]
+        },
+        {
+            "tag": "admissions_process",
+            "handler": "local_then_llm",
+            "patterns": [
+                "How can I apply to DSU?",
+                "When do admissions start?",
+                "What is the admission process?",
+                "How to apply for BCA at DSU?",
+                "Where is the application form?",
+                "Last date to apply",
+                "Are admissions open for 2026?",
+                "Direct admission process",
+                "How do I get admission in MCA?",
+                "Online application for DSU",
+                "What is the admission procedure for SCA?",
+                "When does the BCA course start?"
+            ]
+        },
+        {
+            "tag": "admissions_eligibility",
+            "handler": "local_then_llm",
+            "entity_slots": [
+                "course",
+                "school"
+            ],
+            "patterns": [
+                "What are the eligibility criteria at DSU?",
+                "Eligibility for B.Tech CSE",
+                "Eligibility for MBA at DSU",
+                "What marks do I need for admission to DSU?",
+                "Eligibility for BBA",
+                "What is the eligibility for LLB?",
+                "Who can apply for B.Pharm?",
+                "Eligibility for nursing at DSU",
+                "Can I get admission with 50 percent?",
+                "Admission requirements for B.Des"
+            ]
+        },
+        {
+            "tag": "entrance_exams_scholarships",
+            "handler": "local_then_llm",
+            "patterns": [
+                "Which entrance exams does DSU accept?",
+                "Does DSU accept KCET?",
+                "What is the DSAT?",
+                "Does DSU accept COMEDK?",
+                "Is there a scholarship at DSU?",
+                "What is the CET code for DSU?",
+                "What is the PGCET code for MCA?",
+                "Does DSU give scholarships for law?",
+                "Do I need an entrance exam for BCA?",
+                "Which exam scores does DSU accept for admission?"
+            ]
+        },
+        {
+            "tag": "other_department_courses",
+            "handler": "llm",
+            "entity_slots": [
+                "school"
+            ],
+            "patterns": [
+                "What courses are offered by the School of Engineering?",
+                "Tell me about the School of Law",
+                "What courses are available in Health Sciences?",
+                "What does the School of Commerce and Management offer?",
+                "Tell me about courses outside SCA",
+                "Does DSU offer MBA?",
+                "What B.Tech branches are available?",
+                "Does DSU have nursing?",
+                "What programmes does the School of Design offer?",
+                "Does DSU offer B.Pharm?",
+                "Which courses are in the School of Basic and Applied Sciences?",
+                "Is journalism available at DSU?"
+            ]
+        },
+        {
+            "tag": "other_department_fees",
+            "handler": "llm_fee_lookup",
+            "entity_slots": [
+                "course"
+            ],
+            "patterns": [
+                "What is the fee for BTech CSE?",
+                "How much does BBA cost?",
+                "What is the fee for MBA?",
+                "Tell me the 2026 fees for law courses",
+                "What is the fee for a course in another school?",
+                "How much does Engineering cost at DSU?",
+                "B.Pharm fees at DSU",
+                "BCom fee 2026-27",
+                "What is the fee for BSc Nursing?",
+                "B.Des fee at DSU",
+                "MTech fees",
+                "What is the fee for LLB?"
+            ]
+        },
+        {
+            "tag": "other_department_faculty",
+            "handler": "llm",
+            "entity_slots": [
+                "school"
+            ],
+            "patterns": [
+                "Who is the Dean of Engineering?",
+                "Who heads the School of Law?",
+                "Tell me about the faculty in Health Sciences",
+                "Who is the dean of another department?",
+                "Who is the head of the MBA programme?",
+                "Dean of School of Commerce and Management",
+                "Who runs the School of Design?",
+                "Who are the Pro Vice Chancellors?",
+                "Who is the Vice Chancellor of DSU?",
+                "Who is the Registrar?"
+            ]
+        },
+        {
+            "tag": "course_location",
+            "handler": "llm",
+            "entity_slots": [
+                "course",
+                "school"
+            ],
+            "patterns": [
+                "Where is BTech CSE located?",
+                "Where is the School of Law located?",
+                "Which campus has MBA?",
+                "Where are Engineering classes conducted?",
+                "Which campus is B.Pharm on?",
+                "Where will I study BBA?",
+                "Is nursing at Harohalli?",
+                "Where is the School of Design?",
+                "Which campus has LLB?",
+                "Are B.Com classes at Kudlu Gate?"
+            ]
+        },
+        {
+            "tag": "hostel_facilities",
+            "handler": "local_then_llm",
+            "patterns": [
+                "Does DSU provide hostel facilities?",
+                "What are the hostel fees?",
+                "Tell me about accommodation",
+                "Is there a hostel at the Kudlu Gate campus?",
+                "Hostel for BCA students",
+                "Is hostel available for girls?",
+                "Where is the DSU hostel?",
+                "Hostel handbook",
+                "Can I stay in the hostel if I study at Kudlu Gate?",
+                "Are hostel rooms AC?",
+                "PG or hostel near DSU"
+            ]
+        },
+        {
+            "tag": "transport_facilities",
+            "handler": "local_then_llm",
+            "patterns": [
+                "Does DSU provide bus facility?",
+                "Is there college transport?",
+                "How do I reach the Harohalli campus?",
+                "Is there a bus from Bangalore city to DSU?",
+                "Transport fee at DSU",
+                "Bus routes for the Kudlu Gate campus",
+                "Nearest metro to DSU",
+                "Is there pickup and drop for students?"
+            ]
+        },
+        {
+            "tag": "campus_facilities",
+            "handler": "local_then_llm",
+            "patterns": [
+                "What facilities are available on campus?",
+                "Does DSU have a library?",
+                "Tell me about sports facilities",
+                "Is there a gym on campus?",
+                "Does DSU have a canteen?",
+                "Is there a healthcare facility on campus?",
+                "What labs and innovation centres does DSU have?",
+                "Tell me about campus life",
+                "Are there clubs and student activities?",
+                "Is the campus Wi-Fi enabled?",
+                "Medical facilities at DSU",
+                "Is there an anti-ragging helpline?"
+            ]
+        },
+        {
+            "tag": "follow_up_more_details",
+            "handler": "context_follow_up",
+            "requires_context": true,
+            "patterns": [
+                "Tell me more",
+                "More details please",
+                "Can you explain more?",
+                "Elaborate",
+                "What else?",
+                "Anything else about it?",
+                "Give me more information",
+                "Go on",
+                "And?",
+                "Can you tell me more about that course?",
+                "More about this"
+            ]
+        },
+        {
+            "tag": "follow_up_fee",
+            "handler": "context_follow_up",
+            "requires_context": true,
+            "patterns": [
+                "What about its fee?",
+                "And the fees?",
+                "How much does it cost?",
+                "What is the fee for that?",
+                "How much is it?",
+                "And the cost?",
+                "Fee for this course?",
+                "What about the fee structure?",
+                "Tell me its fee for 2026-27",
+                "What is its fee?"
+            ]
+        },
+        {
+            "tag": "follow_up_eligibility",
+            "handler": "context_follow_up",
+            "requires_context": true,
+            "patterns": [
+                "What about its eligibility?",
+                "Who can apply for it?",
+                "And the eligibility?",
+                "What are the requirements for that?",
+                "Eligibility for this?",
+                "What marks are needed for that?",
+                "Can I apply for it?"
+            ]
+        },
+        {
+            "tag": "follow_up_duration",
+            "handler": "context_follow_up",
+            "requires_context": true,
+            "patterns": [
+                "How long is it?",
+                "What is its duration?",
+                "And the duration?",
+                "How many years is that?",
+                "How many semesters?",
+                "Duration of this course?"
+            ]
+        },
+        {
+            "tag": "follow_up_location",
+            "handler": "context_follow_up",
+            "requires_context": true,
+            "patterns": [
+                "Where is it held?",
+                "Which campus is that?",
+                "Where is that course located?",
+                "And the location?",
+                "Where will the classes be?",
+                "Where do I study it?",
+                "Where is it located?"
+            ]
+        },
+        {
+            "tag": "follow_up_other_course",
+            "handler": "context_follow_up",
+            "requires_context": true,
+            "entity_slots": [
+                "course"
+            ],
+            "patterns": [
+                "What about MCA?",
+                "And for BCA?",
+                "How about MSc Data Science?",
+                "What about the BSc Cyber Security one?",
+                "And BCA AI and DS?",
+                "Same for MBA?",
+                "What about B.Tech?",
+                "And the other one?"
+            ]
+        },
+        {
+            "tag": "enquiry",
+            "handler": "enquiry_form",
+            "patterns": [
+                "I want to make an enquiry",
+                "I need more information",
+                "I have a question about admission",
+                "I want someone to answer my query",
+                "Can someone from the university contact me?",
+                "I want to talk to the admissions team",
+                "Submit my query",
+                "Open the enquiry form",
+                "I want to ask the university directly",
+                "Please call me back",
+                "I need help from the university team"
+            ]
+        },
+        {
+            "tag": "fallback",
+            "handler": "llm",
+            "min_confidence_to_route_elsewhere": 0.6,
+            "patterns": [
+                "I have another question",
+                "Can you help me?",
+                "I want to know more",
+                "I have a question about DSU",
+                "Can I ask something else?",
+                "I have a doubt",
+                "Something else",
+                "One more question"
+            ]
+        }
+    ]
+}

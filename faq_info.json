@@ -1,0 +1,1510 @@
+{
+    "academic_year": "2026-27",
+    "last_verified": "2026-10-18",
+    "source_policy": "Prefer official DSU sources. Do not invent fees, course locations, faculty names, or eligibility requirements.",
+    "status_values_ref": "college_info.meta.status_values",
+    "intents_ref": "intents.json (handler_compatibility, enquiry_form_rules)",
+    "schema": {
+        "answer_mode": "static = answer text is final | dynamic = answer is null and dynamic_handler fetches it | form = show the enquiry form",
+        "show_enquiry_form_and_form_policy": "See intents.json enquiry_form_rules. show_enquiry_form is true only when form_policy is always. Static answers that tell the student to use the form are always; static answers that do not mention the form are never; dynamic answers are on_failure.",
+        "course_id": "Must match an id in college_info exactly. Use course_ids for FAQs covering several courses.",
+        "status": "Must be a key in college_info.meta.status_values."
+    },
+    "common_notes": {
+        "fee_revision": "DSU notes that fees may change if revised by the Government.",
+        "fee_fallback_message_ref": "college_info.enquiry.fee_fallback_message"
+    },
+    "faqs": [
+        {
+            "id": "SCA_ABOUT",
+            "scope": "sca",
+            "intent": "sca_info",
+            "questions": [
+                "Tell me about the School of Computer Applications",
+                "What is SCA?",
+                "Give me details about SCA",
+                "About DSU SCA",
+                "Tell me about the Computer Applications department",
+                "What is special about SCA at DSU?"
+            ],
+            "answer": "The School of Computer Applications (SCA) at Dayananda Sagar University was established in 2016-17 to prepare students for careers in Information Technology. It offers BCA, BCA in AI and Data Sciences, B.Sc. Data Science and B.Sc. Cyber Security at undergraduate level, and MCA, M.Sc. Data Science and M.Sc. Cyber Security at postgraduate level. Its tracks cover AI, Data Science, Cyber Security, Cloud Computing and Web and Mobile Application Development.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/overview-sca",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_ESTABLISHED",
+            "scope": "sca",
+            "intent": "sca_info",
+            "questions": [
+                "When was SCA established?",
+                "Since when has DSU had Computer Applications?",
+                "When did the MCA programme start?",
+                "Year SCA started"
+            ],
+            "answer": "The School of Computer Applications was established in 2016-17. The 2-year MCA programme was launched in 2021-22.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/overview-sca",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_VISION",
+            "scope": "sca",
+            "intent": "sca_info",
+            "questions": [
+                "What is the vision of SCA?",
+                "SCA vision and mission",
+                "What does the Computer Applications department aim for?"
+            ],
+            "answer": "SCA's vision is to develop innovative and skilled computer professionals through research, education and entrepreneurial initiatives, building leadership qualities to address the challenges of emerging technologies. Its mission covers cutting-edge education and research, state-of-the-art facilities and faculty, and a curriculum updated to match industry needs.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/vision-mission-sca",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_WHY",
+            "scope": "sca",
+            "intent": "sca_info",
+            "questions": [
+                "Why should I join SCA?",
+                "What are the advantages of studying at SCA?",
+                "What makes SCA different?",
+                "USP of School of Computer Applications"
+            ],
+            "answer": "SCA highlights an Industry 4.0 aligned curriculum, specialisation tracks (AI, Data Science, Cyber Security, Cloud Computing, Web and Mobile Application Development), labs and technology infrastructure, industry immersion, one-on-one mentoring, and a placement cell that connects students with companies for internships and placements.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/usp-sca",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_COURSES_ALL",
+            "scope": "sca",
+            "intent": "sca_courses",
+            "course_ids": [
+                "sca_bca",
+                "sca_bca_ai_ds",
+                "sca_bsc_ds",
+                "sca_bsc_cs",
+                "sca_mca",
+                "sca_msc_ds",
+                "sca_msc_cs"
+            ],
+            "questions": [
+                "What courses are offered by SCA?",
+                "Which courses are available in Computer Applications?",
+                "List all SCA programmes",
+                "What programmes does the School of Computer Applications offer?",
+                "Courses in Computer Applications at DSU"
+            ],
+            "answer": "SCA offers seven programmes. Undergraduate (3 years): BCA, BCA in Artificial Intelligence and Data Sciences, B.Sc. Data Science, B.Sc. Cyber Security. Postgraduate (2 years): MCA, M.Sc. Data Science, M.Sc. Cyber Security.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/academics/schools/computer-application",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_UG_COURSES",
+            "scope": "sca",
+            "intent": "sca_courses",
+            "course_ids": [
+                "sca_bca",
+                "sca_bca_ai_ds",
+                "sca_bsc_ds",
+                "sca_bsc_cs"
+            ],
+            "questions": [
+                "What undergraduate courses does SCA have?",
+                "UG programmes in Computer Applications",
+                "Does SCA offer BCA?",
+                "Does SCA offer BSc Data Science?",
+                "Is there a cyber security degree at DSU?",
+                "Does DSU offer BCA in AI and Data Science?"
+            ],
+            "answer": "Yes. SCA's undergraduate programmes are BCA, BCA in Artificial Intelligence and Data Sciences, B.Sc. Data Science and B.Sc. Cyber Security. Each is a 3-year programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_PG_COURSES",
+            "scope": "sca",
+            "intent": "sca_courses",
+            "course_ids": [
+                "sca_mca",
+                "sca_msc_ds",
+                "sca_msc_cs"
+            ],
+            "questions": [
+                "What postgraduate courses are available in SCA?",
+                "Does SCA offer MCA?",
+                "Is MSc Data Science available at DSU?",
+                "Is MSc Cyber Security offered?",
+                "PG programmes in Computer Applications"
+            ],
+            "answer": "SCA's postgraduate programmes are MCA (Master of Computer Applications), M.Sc. Data Science and M.Sc. Cyber Security. Each is a 2-year programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_SPECIALISATIONS",
+            "scope": "sca",
+            "intent": "sca_courses",
+            "questions": [
+                "What are the specialisations in SCA?",
+                "Which areas can I specialise in at SCA?",
+                "Does SCA offer AI or cloud computing tracks?",
+                "Specialisation tracks in Computer Applications"
+            ],
+            "answer": "SCA lists specialisation tracks in Artificial Intelligence, Data Science, Cyber Security, Cloud Computing, and Web and Mobile Application Development. Which track applies to which programme is not detailed here; see the SCA programmes page (https://www.dsu.edu.in/computer-applications/programs-sca).",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/usp-sca",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_BCA_AIDS_ABOUT",
+            "scope": "sca",
+            "course_id": "sca_bca_ai_ds",
+            "intent": "sca_courses",
+            "questions": [
+                "What is BCA in AI and Data Science?",
+                "Tell me about BCA AI & DS",
+                "What will I learn in BCA AIDS?",
+                "How is BCA AI and DS different from BCA?"
+            ],
+            "answer": "BCA (Artificial Intelligence and Data Science) is a 3-year (6-semester), application-focused programme that blends computer applications, AI algorithms and data-driven problem solving to prepare students to build intelligent systems and analytical solutions. Its yearly fee for 2026-27 is the same as regular BCA (INR 2,07,000). A detailed syllabus comparison is not covered here; see the programme page (https://www.dsu.edu.in/computer-applications/bca-ai-ds).",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/bca-ai-ds",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_ONLINE_BCA",
+            "scope": "sca",
+            "intent": "sca_courses",
+            "questions": [
+                "Is there an online BCA at DSU?",
+                "Does DSU offer BCA online?",
+                "Is online BCA the same as regular BCA?",
+                "DSU online degree programmes"
+            ],
+            "answer": "DSU lists separate online degree programmes (BBA, BCA and B.Com) at dsuonline.com. They are different from the regular on-campus BCA offered by SCA, so details and fees should not be mixed. For online programme details please visit https://dsuonline.com/ or call +91 9880147004.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://dsuonline.com/",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_DEAN",
+            "scope": "sca",
+            "intent": "sca_dean",
+            "questions": [
+                "Who is the Dean of SCA?",
+                "Who heads the School of Computer Applications?",
+                "Tell me the SCA dean's name",
+                "Who is responsible for the Computer Applications department?",
+                "SCA dean",
+                "Who is the head of SCA?"
+            ],
+            "answer": "Dr. S. Senthil is the Professor and Dean of the School of Computer Applications at Dayananda Sagar University, as listed on the official SCA Dean's Message page.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/dean-msg-sca",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_FACULTY",
+            "scope": "sca",
+            "intent": "sca_leadership_faculty",
+            "questions": [
+                "Who are the faculty members in SCA?",
+                "Tell me about SCA professors",
+                "List of SCA faculty",
+                "How is the faculty in Computer Applications?",
+                "What do SCA faculty specialise in?"
+            ],
+            "answer": "SCA describes its faculty as experienced professionals and educators across Computer Science, Mathematics and Information Technology, with specialisations including AI, Machine Learning, Data Analytics, Cloud Computing and Wireless Networks. The full list is on the SCA faculty page (https://www.dsu.edu.in/computer-applications/faculty-sca). Beyond the Dean, I can't confirm individual names here.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/facilities-sca",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_LOCATION",
+            "scope": "sca",
+            "intent": "sca_location",
+            "course_ids": [
+                "sca_bca",
+                "sca_bsc_ds",
+                "sca_bsc_cs",
+                "sca_mca",
+                "sca_msc_ds",
+                "sca_msc_cs"
+            ],
+            "questions": [
+                "Where is SCA located?",
+                "Which campus has SCA?",
+                "Where are SCA classes held?",
+                "Location of the School of Computer Applications",
+                "Are Computer Applications classes at Harohalli?"
+            ],
+            "answer": "The 2026 admissions page lists BCA, MCA, B.Sc. Data Science, M.Sc. Data Science, B.Sc. Cyber Security and M.Sc. Cyber Security as held at the DSU City Innovation Campus, Kudlu Gate, Hosur Road, Bengaluru. They are not listed at the Harohalli main campus. The teaching campus for BCA in AI and Data Sciences is not listed there, so I can't confirm it.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_CAMPUS_VS_OFFICE",
+            "scope": "sca",
+            "intent": "sca_location",
+            "questions": [
+                "Is the Kumaraswamy Layout office a campus?",
+                "Where is the DSU admissions office?",
+                "Are classes held at the City Admissions Office?",
+                "Difference between admissions office and campus"
+            ],
+            "answer": "The DSU City Admissions Office (Gate 2, 6th Floor, University Building, Dental Block, Kumaraswamy Layout, Bengaluru) is an admissions office, not a teaching campus. SCA classes listed on the admissions page are at the City Innovation Campus, Kudlu Gate.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_FEES_ALL",
+            "scope": "sca",
+            "intent": "sca_fees",
+            "course_ids": [
+                "sca_bca",
+                "sca_bca_ai_ds",
+                "sca_bsc_ds",
+                "sca_bsc_cs",
+                "sca_mca",
+                "sca_msc_ds",
+                "sca_msc_cs"
+            ],
+            "questions": [
+                "What are the SCA fees for 2026?",
+                "Fee structure of SCA",
+                "SCA fee details",
+                "Fees for all Computer Applications courses",
+                "What is the fee for each SCA programme?"
+            ],
+            "answer": "SCA yearly fees for 2026-27 (Term I + Term II = yearly total): BCA INR 1,09,500 + 97,500 = INR 2,07,000; BCA in AI and Data Sciences INR 1,09,500 + 97,500 = INR 2,07,000; B.Sc. Data Science INR 87,000 + 75,000 = INR 1,62,000; B.Sc. Cyber Security INR 87,000 + 75,000 = INR 1,62,000; MCA INR 1,77,000 + 1,65,000 = INR 3,42,000; M.Sc. Data Science INR 82,000 + 70,000 = INR 1,52,000; M.Sc. Cyber Security INR 82,000 + 70,000 = INR 1,52,000. The MCA and M.Sc. figures appear to be listed under the 'Others' (non-PGCET) column; please confirm with admissions if you are applying through PGCET. DSU notes fees may change if revised by the Government.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_FEE_BCA",
+            "scope": "sca",
+            "course_id": "sca_bca",
+            "intent": "sca_fees",
+            "questions": [
+                "What is the fee for BCA?",
+                "How much does BCA cost at DSU?",
+                "Tell me the BCA fee for 2026-27",
+                "What is the BCA fee for 2026?",
+                "BCA fees",
+                "What is the yearly fee for Bachelor of Computer Applications?"
+            ],
+            "answer": "For 2026-27, the yearly fee for BCA is INR 1,09,500 for Term I and INR 97,500 for Term II, a total of INR 2,07,000 per year. DSU notes fees may change if revised by the Government.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_FEE_BCA_AIDS",
+            "scope": "sca",
+            "course_id": "sca_bca_ai_ds",
+            "intent": "sca_fees",
+            "questions": [
+                "How much is BCA in Artificial Intelligence and Data Sciences?",
+                "What is the fee for BCA AI and DS?",
+                "BCA AI & DS fee 2026-27",
+                "Is BCA AI and DS fee different from BCA?",
+                "BCA AIDS fees"
+            ],
+            "answer": "For 2026-27, the yearly fee for BCA in Artificial Intelligence and Data Sciences is INR 1,09,500 for Term I and INR 97,500 for Term II, a total of INR 2,07,000 per year. This is the same figure as regular BCA.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_FEE_BSC_DS",
+            "scope": "sca",
+            "course_id": "sca_bsc_ds",
+            "intent": "sca_fees",
+            "questions": [
+                "What is the fee for BSc Data Science?",
+                "How much does BSc Data Science cost?",
+                "Tell me the BSc Data Science fee for 2026-27",
+                "How much is B.Sc. Data Science at DSU?",
+                "BSc DS fees"
+            ],
+            "answer": "For 2026-27, the yearly fee for B.Sc. Data Science is INR 87,000 for Term I and INR 75,000 for Term II, a total of INR 1,62,000 per year.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_FEE_BSC_CS",
+            "scope": "sca",
+            "course_id": "sca_bsc_cs",
+            "intent": "sca_fees",
+            "questions": [
+                "What is the fee for BSc Cyber Security?",
+                "How much does BSc Cybersecurity cost?",
+                "What is the 2026 fee for Cybersecurity in SCA?",
+                "BSc cyber sec fee",
+                "Tell me the B.Sc. Cyber Security fee for 2026-27"
+            ],
+            "answer": "For 2026-27, the yearly fee for B.Sc. Cyber Security is INR 87,000 for Term I and INR 75,000 for Term II, a total of INR 1,62,000 per year.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_FEE_MCA",
+            "scope": "sca",
+            "course_id": "sca_mca",
+            "intent": "sca_fees",
+            "questions": [
+                "What is the MCA fee at DSU?",
+                "How much does MCA cost in 2026-27?",
+                "Tell me the Master of Computer Applications fee",
+                "Tell me the MCA fee",
+                "MCA fees 2026",
+                "What is the Term 1 fee for MCA?"
+            ],
+            "answer": "For 2026-27, the yearly fee for MCA is INR 1,77,000 for Term I and INR 1,65,000 for Term II, a total of INR 3,42,000 per year. DSU's fee table appears to show this under the 'Others' (non-PGCET) column. If you are applying through PGCET, please confirm the applicable fee with admissions.",
+            "review_note": "Fee category wording is interpreted_needs_check in college_info.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_FEE_MSC_DS",
+            "scope": "sca",
+            "course_id": "sca_msc_ds",
+            "intent": "sca_fees",
+            "questions": [
+                "What is the fee for MSc Data Science?",
+                "How much is MSc Data Science in 2026?",
+                "MSc DS fees",
+                "Tell me the M.Sc. Data Science fee for 2026-27",
+                "How much does M.Sc. Data Science cost at DSU?"
+            ],
+            "answer": "For 2026-27, the yearly fee for M.Sc. Data Science is INR 82,000 for Term I and INR 70,000 for Term II, a total of INR 1,52,000 per year. The fee table appears to list this under the 'Others' (non-PGCET) column; please confirm with admissions if you are applying through PGCET.",
+            "review_note": "Fee category wording is interpreted_needs_check in college_info.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_FEE_MSC_CS",
+            "scope": "sca",
+            "course_id": "sca_msc_cs",
+            "intent": "sca_fees",
+            "questions": [
+                "What is the fee for MSc Cybersecurity?",
+                "How much is MSc Cyber Security?",
+                "msc cyber sec fee",
+                "Tell me the M.Sc. Cyber Security fee for 2026-27",
+                "MSc Cybersecurity fee 2026"
+            ],
+            "answer": "For 2026-27, the yearly fee for M.Sc. Cyber Security is INR 82,000 for Term I and INR 70,000 for Term II, a total of INR 1,52,000 per year. The fee table appears to list this under the 'Others' (non-PGCET) column; please confirm with admissions if you are applying through PGCET.",
+            "review_note": "Fee category wording is interpreted_needs_check in college_info.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_FEE_TOTAL_COURSE",
+            "scope": "sca",
+            "intent": "sca_fees",
+            "questions": [
+                "What is the total fee for the whole BCA course?",
+                "What is the fee for all 3 years?",
+                "Total cost of MCA for 2 years",
+                "Is the fee per year or for the full course?",
+                "Is the listed fee for the whole programme?"
+            ],
+            "answer": "The official DSU page publishes a yearly fee structure for 2026-27, split into Term I and Term II. It does not publish a total for the full programme, and fees can be revised, so I can't give a verified multi-year total. Please use the enquiry form if you need a full-programme estimate.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_FEE_INSTALMENTS",
+            "scope": "sca",
+            "intent": "sca_fees",
+            "questions": [
+                "Can I pay the fee in instalments?",
+                "What are the fee payment dates?",
+                "When is Term 2 fee due?",
+                "How is the fee split between terms?",
+                "Fee payment schedule at DSU"
+            ],
+            "answer": "SCA fees are listed in two parts, Term I and Term II, for example BCA INR 1,09,500 and INR 97,500. Payment due dates and any other instalment options are not published on the page I checked, so please use the enquiry form to get the payment schedule.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_DUR_BCA",
+            "scope": "sca",
+            "course_id": "sca_bca",
+            "intent": "sca_course_duration",
+            "questions": [
+                "What is the duration of BCA?",
+                "How many years is BCA?",
+                "How long does the BCA course take?",
+                "BCA course length"
+            ],
+            "answer": "BCA at DSU is a 3-year regular programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_DUR_BCA_AIDS",
+            "scope": "sca",
+            "course_id": "sca_bca_ai_ds",
+            "intent": "sca_course_duration",
+            "questions": [
+                "What is the duration of BCA in AI and Data Science?",
+                "How many semesters in BCA AI and DS?",
+                "How long is BCA AI & DS?",
+                "BCA AIDS duration"
+            ],
+            "answer": "BCA in Artificial Intelligence and Data Science is a 3-year programme (6 semesters).",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/bca-ai-ds",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_DUR_BSC_DS",
+            "scope": "sca",
+            "course_id": "sca_bsc_ds",
+            "intent": "sca_course_duration",
+            "questions": [
+                "How long is BSc Data Science?",
+                "Duration of B.Sc. Data Science",
+                "How many years is BSc Data Science?",
+                "BSc DS course duration"
+            ],
+            "answer": "B.Sc. Data Science is a 3-year regular programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_DUR_BSC_CS",
+            "scope": "sca",
+            "course_id": "sca_bsc_cs",
+            "intent": "sca_course_duration",
+            "questions": [
+                "Duration of BSc Cyber Security",
+                "How many years is BSc Cybersecurity?",
+                "How long is the B.Sc. Cyber Security course?",
+                "BSc cyber sec duration"
+            ],
+            "answer": "B.Sc. Cyber Security is a 3-year regular programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_DUR_MCA",
+            "scope": "sca",
+            "course_id": "sca_mca",
+            "intent": "sca_course_duration",
+            "questions": [
+                "How many years is MCA?",
+                "What is the duration of MCA?",
+                "Is MCA 2 years?",
+                "MCA course duration at DSU"
+            ],
+            "answer": "MCA at DSU is a 2-year regular programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_DUR_MSC_DS",
+            "scope": "sca",
+            "course_id": "sca_msc_ds",
+            "intent": "sca_course_duration",
+            "questions": [
+                "Duration of MSc Data Science",
+                "How long is the M.Sc. Data Science programme?",
+                "How many years is MSc Data Science?",
+                "MSc DS duration"
+            ],
+            "answer": "M.Sc. Data Science is a 2-year regular programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_DUR_MSC_CS",
+            "scope": "sca",
+            "course_id": "sca_msc_cs",
+            "intent": "sca_course_duration",
+            "questions": [
+                "Duration of MSc Cyber Security",
+                "How many years is MSc Cybersecurity?",
+                "How long is M.Sc. Cyber Security?",
+                "msc cyber sec duration"
+            ],
+            "answer": "M.Sc. Cyber Security is a 2-year regular programme.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_ELIG_BCA",
+            "scope": "sca",
+            "course_id": "sca_bca",
+            "intent": "sca_eligibility",
+            "questions": [
+                "What is the eligibility for BCA?",
+                "Who can apply for BCA?",
+                "Minimum marks required for BCA",
+                "What percentage is needed for BCA?",
+                "Can a commerce student join BCA?",
+                "BCA admission requirements"
+            ],
+            "answer": "For BCA, DSU lists: a pass in 10+2, A Level, IB, American 12th grade or an equivalent qualification with at least 45% marks in aggregate. The listed criteria don't name a required stream. For stream-specific questions, please confirm with the admissions helpline (080 46461800 or +91 6366885507).",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_ELIG_BCA_AIDS",
+            "scope": "sca",
+            "course_id": "sca_bca_ai_ds",
+            "intent": "sca_eligibility",
+            "questions": [
+                "Eligibility for BCA AI and DS",
+                "Who can apply for BCA in Artificial Intelligence and Data Science?",
+                "Minimum marks for BCA AI & DS",
+                "BCA AIDS eligibility criteria"
+            ],
+            "answer": "For BCA (AI and Data Science), DSU lists a pass in PUC / 10+2 with at least 45% marks (40% for SC/ST candidates) from a recognised Board or council, or an equivalent qualification.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/bca-ai-ds",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_ELIG_BSC_DS",
+            "scope": "sca",
+            "course_id": "sca_bsc_ds",
+            "intent": "sca_eligibility",
+            "questions": [
+                "What are the admission requirements for BSc Data Science?",
+                "Eligibility for B.Sc. Data Science",
+                "Who can apply for BSc Data Science?",
+                "BSc DS eligibility"
+            ],
+            "answer": "I couldn't find separate eligibility text for B.Sc. Data Science on the official fee and eligibility page, so I can't confirm the criteria. Please fill out the enquiry form and the university team can confirm the requirements.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "not_verified"
+        },
+        {
+            "id": "SCA_ELIG_BSC_CS",
+            "scope": "sca",
+            "course_id": "sca_bsc_cs",
+            "intent": "sca_eligibility",
+            "questions": [
+                "Eligibility for BSc Cyber Security",
+                "Who can apply for B.Sc. Cybersecurity?",
+                "BSc Cyber Security admission requirements",
+                "Minimum marks for BSc cyber sec"
+            ],
+            "answer": "I couldn't find separate eligibility text for B.Sc. Cyber Security on the official fee and eligibility page, so I can't confirm the criteria. Please fill out the enquiry form and the university team can confirm the requirements.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "not_verified"
+        },
+        {
+            "id": "SCA_ELIG_MCA",
+            "scope": "sca",
+            "course_id": "sca_mca",
+            "intent": "sca_eligibility",
+            "questions": [
+                "Who can apply for MCA?",
+                "What is the eligibility for MCA?",
+                "Can I join MCA after BSc?",
+                "Can I apply for MCA with a BCom degree?",
+                "Do I need maths for MCA?",
+                "MCA admission requirements"
+            ],
+            "answer": "For MCA, DSU lists a UG degree in BCA or B.Sc. (CS/IT), or B.Sc. / B.Com / BA from a recognised university with Mathematics at 10+2 or graduation level (with bridge courses as per university norms), and at least 50% marks in the qualifying examination.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_ELIG_MSC_DS",
+            "scope": "sca",
+            "course_id": "sca_msc_ds",
+            "intent": "sca_eligibility",
+            "questions": [
+                "Eligibility criteria for MSc Data Science",
+                "Who can apply for M.Sc. Data Science?",
+                "MSc DS admission requirements",
+                "Can I do MSc Data Science after BCA?"
+            ],
+            "answer": "I couldn't find separate eligibility text for M.Sc. Data Science on the official fee and eligibility page, so I can't confirm the criteria. Please fill out the enquiry form and the university team can confirm the requirements.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "not_verified"
+        },
+        {
+            "id": "SCA_ELIG_MSC_CS",
+            "scope": "sca",
+            "course_id": "sca_msc_cs",
+            "intent": "sca_eligibility",
+            "questions": [
+                "Eligibility for MSc Cyber Security",
+                "Who can apply for M.Sc. Cybersecurity?",
+                "MSc cyber sec admission requirements",
+                "Can I do MSc Cyber Security after BSc?"
+            ],
+            "answer": "I couldn't find separate eligibility text for M.Sc. Cyber Security on the official fee and eligibility page, so I can't confirm the criteria. Please fill out the enquiry form and the university team can confirm the requirements.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "not_verified"
+        },
+        {
+            "id": "SCA_LOC_BCA",
+            "scope": "sca",
+            "course_id": "sca_bca",
+            "intent": "sca_location",
+            "questions": [
+                "Where is BCA conducted?",
+                "Is BCA at Harohalli or Kudlu Gate?",
+                "Where will I study BCA?",
+                "Which campus has BCA?"
+            ],
+            "answer": "BCA classes are held at the DSU City Innovation Campus, Kudlu Gate, Hosur Road, Bengaluru.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_LOC_BCA_AIDS",
+            "scope": "sca",
+            "course_id": "sca_bca_ai_ds",
+            "intent": "sca_location",
+            "questions": [
+                "Where is BCA in AI and Data Science taught?",
+                "Which campus has BCA AI & DS?",
+                "BCA AIDS campus location",
+                "Where are BCA AI and DS classes held?"
+            ],
+            "answer": "BCA in Artificial Intelligence and Data Sciences isn't listed in the campus-wise programme table on the 2026 admissions page, so I can't confirm its teaching campus. Please fill out the enquiry form and the university team can confirm the location.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "not_verified"
+        },
+        {
+            "id": "SCA_LOC_BSC_DS",
+            "scope": "sca",
+            "course_id": "sca_bsc_ds",
+            "intent": "sca_location",
+            "questions": [
+                "Which campus has BSc Data Science?",
+                "Where is B.Sc. Data Science held?",
+                "BSc DS campus location",
+                "Is BSc Data Science at Harohalli?"
+            ],
+            "answer": "B.Sc. Data Science classes are held at the DSU City Innovation Campus, Kudlu Gate, Hosur Road, Bengaluru.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_LOC_BSC_CS",
+            "scope": "sca",
+            "course_id": "sca_bsc_cs",
+            "intent": "sca_location",
+            "questions": [
+                "Where is BSc Cyber Security held?",
+                "Which campus has B.Sc. Cybersecurity?",
+                "BSc cyber sec campus",
+                "Where will I study BSc Cyber Security?"
+            ],
+            "answer": "B.Sc. Cyber Security classes are held at the DSU City Innovation Campus, Kudlu Gate, Hosur Road, Bengaluru.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_LOC_MCA",
+            "scope": "sca",
+            "course_id": "sca_mca",
+            "intent": "sca_location",
+            "questions": [
+                "Where is MCA located?",
+                "Which campus has MCA?",
+                "Where are MCA classes held?",
+                "MCA campus at DSU"
+            ],
+            "answer": "MCA classes are held at the DSU City Innovation Campus, Kudlu Gate, Hosur Road, Bengaluru.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_LOC_MSC_DS",
+            "scope": "sca",
+            "course_id": "sca_msc_ds",
+            "intent": "sca_location",
+            "questions": [
+                "Where is MSc Data Science held?",
+                "Which campus has M.Sc. Data Science?",
+                "MSc DS campus location",
+                "Where will I study MSc Data Science?"
+            ],
+            "answer": "M.Sc. Data Science classes are held at the DSU City Innovation Campus, Kudlu Gate, Hosur Road, Bengaluru.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_LOC_MSC_CS",
+            "scope": "sca",
+            "course_id": "sca_msc_cs",
+            "intent": "sca_location",
+            "questions": [
+                "Which campus is MSc Cyber Security on?",
+                "Where is M.Sc. Cybersecurity held?",
+                "msc cyber sec campus",
+                "Where will I study MSc Cyber Security?"
+            ],
+            "answer": "M.Sc. Cyber Security classes are held at the DSU City Innovation Campus, Kudlu Gate, Hosur Road, Bengaluru.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_FACILITIES",
+            "scope": "sca",
+            "intent": "sca_facilities",
+            "questions": [
+                "What facilities does SCA have?",
+                "Are the classrooms smart classrooms?",
+                "Tell me about the SCA infrastructure",
+                "How many classrooms does SCA have?",
+                "What is the infrastructure like for BCA students?"
+            ],
+            "answer": "DSU reports more than 200 smart classrooms university-wide, and SCA has 15 digital classrooms with projectors, Wi-Fi and facilities that support hybrid learning. SCA also highlights labs and technology infrastructure and a one-on-one mentoring system.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/facilities-sca",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_LIBRARY",
+            "scope": "sca",
+            "intent": "sca_facilities",
+            "questions": [
+                "Does SCA have a library?",
+                "How many books are there for Computer Applications?",
+                "Does DSU have e-journals?",
+                "Library facilities for BCA students"
+            ],
+            "answer": "The SCA facilities page states that the university library holds over 2,500 books related to Computer Science and Applications, along with e-books, international journals, publications and research papers. More library details are on the DSU library page.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/facilities-sca",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_LABS",
+            "scope": "sca",
+            "intent": "sca_facilities",
+            "questions": [
+                "Does SCA have computer labs?",
+                "What labs are there in Computer Applications?",
+                "Are there AI labs for SCA students?",
+                "Lab facilities in SCA"
+            ],
+            "answer": "SCA lists labs and technology infrastructure among its strengths, and the university lists computer labs among its facilities. Specific lab names for SCA are not detailed on the pages I checked, so please use the enquiry form for lab specifics.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/computer-applications/usp-sca",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_MENTORING",
+            "scope": "sca",
+            "intent": "sca_facilities",
+            "questions": [
+                "Mentoring system in SCA",
+                "Do students get a mentor?",
+                "Is there personal guidance for BCA students?",
+                "Career guidance in SCA"
+            ],
+            "answer": "SCA describes a dedicated one-on-one mentoring system for personalised academic and career guidance.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/usp-sca",
+            "status": "source_checked"
+        },
+        {
+            "id": "SCA_PLACEMENTS",
+            "scope": "sca",
+            "intent": "sca_placements",
+            "questions": [
+                "What are the placements in SCA?",
+                "Does DSU provide placements for BCA?",
+                "Placement record of Computer Applications",
+                "Do you have campus recruitment for MCA?",
+                "How good are BCA placements at DSU?"
+            ],
+            "answer": "SCA works with the university's Training and Placement Cell, which connects students with companies for internships and placements. For example, a Placement Industry Insight Session was held on 12 December 2025 for MCA third-semester students. I can't quote package figures, placement percentages or recruiter names because I couldn't verify them; see the SCA placement page (https://www.dsu.edu.in/computer-applications/placement-sca).",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/news-events/events-computer-applications/sca-events-dec-2025",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_PLACEMENT_STATS",
+            "scope": "sca",
+            "intent": "sca_placements",
+            "questions": [
+                "What is the average package for MCA?",
+                "Highest package in SCA",
+                "Placement statistics for SCA",
+                "Which companies visit DSU for MCA?",
+                "Salary after BCA at DSU"
+            ],
+            "answer": "I couldn't verify package or recruiter figures for SCA from official pages, so I won't quote any. Please check the DSU placement pages or fill out the enquiry form to get current statistics from the university team.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/placements/overview-placements",
+            "status": "not_verified"
+        },
+        {
+            "id": "SCA_INTERNSHIPS",
+            "scope": "sca",
+            "intent": "sca_internships",
+            "questions": [
+                "Does SCA provide internships?",
+                "Are there internship opportunities in BCA?",
+                "Industry exposure in SCA",
+                "Do students get live projects?",
+                "Is there industry training in MCA?"
+            ],
+            "answer": "SCA lists industry immersion and experiential learning among its strengths, and its placement cell connects students with companies for internships and placements. The programme-specific internship structure (duration, mandatory or optional) isn't detailed on the pages I checked; see the SCA programmes page (https://www.dsu.edu.in/computer-applications/programs-sca).",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/computer-applications/usp-sca",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_HOSTEL",
+            "scope": "sca",
+            "intent": "hostel_facilities",
+            "questions": [
+                "Is there a hostel for BCA students?",
+                "Hostel for SCA students at Kudlu Gate",
+                "Can I stay in the hostel if I study at Kudlu Gate?",
+                "Hostel facility for MCA students"
+            ],
+            "answer": "DSU's official hostel information refers to the hostel at the Harohalli main campus. SCA programmes run at the Kudlu Gate campus, and I couldn't verify hostel availability there. Please fill out the enquiry form so the team can confirm accommodation options for SCA students.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/images/Admission/brochures/Harohalli_Hostel_Student_handbook.pdf",
+            "status": "not_verified"
+        },
+        {
+            "id": "SCA_ADMISSION_HOW",
+            "scope": "sca",
+            "intent": "admissions_process",
+            "questions": [
+                "How to apply for BCA at DSU?",
+                "How do I get admission in MCA?",
+                "What is the admission procedure for SCA?",
+                "Application for Computer Applications at DSU",
+                "Where is the application form for SCA?"
+            ],
+            "answer": "You can apply through DSU's online admissions portal at https://admissions.dsu.edu.in (Direct Admissions 2026). Course eligibility and fees are on https://www.dsu.edu.in/eligibility. For MCA the fee page also lists a PGCET code (C520MC). For application deadlines and counselling steps, please contact the admissions helpline (080 46461800 or +91 6366885507).",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/admission",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "SCA_CONTACT",
+            "scope": "sca",
+            "intent": "university_contact_address",
+            "questions": [
+                "How can I contact SCA?",
+                "SCA admissions contact",
+                "Phone number for Computer Applications admissions",
+                "Who do I call about BCA admission?"
+            ],
+            "answer": "For admissions queries you can call the DSU admissions helpline at 080 46461800 or +91 6366885507. Email addresses are not available in readable form on the official pages, so please use the enquiry form to reach the university team in writing.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_ABOUT",
+            "scope": "university",
+            "intent": "university_info",
+            "questions": [
+                "Tell me about Dayananda Sagar University",
+                "What is DSU?",
+                "Give me information about DSU",
+                "Tell me about the university",
+                "About DSU",
+                "Overview of Dayananda Sagar University"
+            ],
+            "answer": "Dayananda Sagar University (DSU) in Bengaluru was created by an Act of the Karnataka State in 2014, building on the Dayananda Sagar Institutions founded in the 1960s by the late Sri R. Dayananda Sagar. It has eight academic and research schools, a 130-acre main campus at Harohalli and a City Innovation Campus at Kudlu Gate.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "UNI_ESTABLISHED",
+            "scope": "university",
+            "intent": "university_info",
+            "questions": [
+                "When was DSU established?",
+                "Is DSU a private university?",
+                "Year DSU started",
+                "Who founded Dayananda Sagar University?"
+            ],
+            "answer": "Dayananda Sagar University was created by an Act of the Karnataka State in 2014. It builds on the Dayananda Sagar Institutions, founded in the 1960s by the late Sri R. Dayananda Sagar (Barrister-at-Law). DSU's own admissions page describes it as among the top private universities in Karnataka.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "UNI_SCHOOLS",
+            "scope": "university",
+            "intent": "schools_list",
+            "questions": [
+                "What schools are available at DSU?",
+                "List all schools in DSU",
+                "Which departments does DSU have?",
+                "How many schools does DSU have?",
+                "Which other departments are available at DSU?"
+            ],
+            "answer": "DSU describes itself as having eight academic and research schools. Its programme listings group courses under these schools: Engineering; Computer Applications; Commerce and Management; Basic and Applied Sciences; Health Sciences (including Allied Health, Pharmacy, Nursing and Physiotherapy); Arts, Design and Humanities; Design and Digital Transmedia; and Law. DSU's own overview words the grouping slightly differently (for example, it names Nursing and Journalism separately), so please check the official site for the exact structure. DSU also lists CDSIMER (medical education and research) and online degree programmes separately.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_CAMPUSES",
+            "scope": "university",
+            "intent": "campuses_info",
+            "questions": [
+                "What campuses does DSU have?",
+                "Where is the main campus?",
+                "Difference between Harohalli and Kudlu Gate campus",
+                "How many campuses are there?",
+                "Tell me about the City Innovation Campus"
+            ],
+            "answer": "DSU has two teaching campuses. The Main Campus is at Harohalli on Kanakapura Road (about 45 km from the city, on 130 acres); the admissions page lists Engineering and Health Sciences programmes there. The City Innovation Campus is at Kudlu Gate, Hosur Road, Bengaluru; the admissions page lists Computer Applications programmes (BCA in AI and Data Sciences is not in that list), Commerce and Management, Basic and Applied Sciences, Arts, Design and Humanities, Design and Digital Transmedia, and Law programmes there.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked"
+        },
+        {
+            "id": "UNI_ADDRESS",
+            "scope": "university",
+            "intent": "university_contact_address",
+            "questions": [
+                "What is the address of DSU?",
+                "Where is DSU located?",
+                "DSU main campus address",
+                "Address of the Kudlu Gate campus",
+                "How do I reach DSU?"
+            ],
+            "answer": "Main Campus: Devarakaggalahalli, Harohalli, Kanakapura Road, Bengaluru South District, Karnataka - 562112. City Innovation Campus: Kudlu Gate, Srinivasa Nagar, HAL Layout, Singasandra, Hosur Road, Bengaluru. DSU's own pages show two different PIN codes for the Kudlu Gate campus, so please confirm the PIN before sending post.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_CONTACT",
+            "scope": "university",
+            "intent": "university_contact_address",
+            "questions": [
+                "How can I contact DSU?",
+                "Give me the DSU phone number",
+                "What is the admissions helpline number?",
+                "DSU contact details",
+                "Admission office contact"
+            ],
+            "answer": "The DSU admissions helpline numbers are 080 46461800 and +91 6366885507. For NRI and foreign admissions: +91 9606022149, +91 9606022150 or +91 9606022152. Email addresses are not available in readable form on the official pages, so please use the enquiry form to reach the university team in writing.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_ACCREDITATION",
+            "scope": "university",
+            "intent": "accreditation_rankings",
+            "questions": [
+                "Is DSU NAAC accredited?",
+                "What is DSU's NAAC grade?",
+                "DSU rankings",
+                "Is DSU recognised?",
+                "Is DSU UGC approved?"
+            ],
+            "answer": "DSU's 2026 admissions page states that it is a NAAC A+ accredited university. I couldn't confirm UGC, AICTE or NIRF details from the pages I checked, so I won't state them.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_ADMISSION_APPLY",
+            "scope": "university",
+            "intent": "admissions_process",
+            "questions": [
+                "How can I apply to DSU?",
+                "Are admissions open for 2026?",
+                "Where is the application form?",
+                "Direct admission process",
+                "Online application for DSU"
+            ],
+            "answer": "DSU's 2026 admissions are open through its online portal at https://admissions.dsu.edu.in. Programme eligibility and fees are at https://www.dsu.edu.in/eligibility. For deadlines and course start dates, see https://www.dsu.edu.in/admission/commencement-date or call 080 46461800.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/admission",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_ENTRANCE_EXAMS",
+            "scope": "university",
+            "intent": "entrance_exams_scholarships",
+            "questions": [
+                "Which entrance exams does DSU accept?",
+                "What is the CET code for DSU?",
+                "Does DSU accept COMEDK?",
+                "What is the PGCET code for MCA?",
+                "What is the DSAT?"
+            ],
+            "answer": "DSU lists these codes: CET (B.Tech) E240, COMEDK E182, PGCET (M.Tech) T970, PGCET (MBA) B365MB, PGCET (MCA) C520MC. For B.A. LL.B and B.B.A. LL.B, DSU accepts CLAT and DSAT (Dayananda Sagar Scholarship Admission Test) scores.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "UNI_SCHOLARSHIPS",
+            "scope": "university",
+            "intent": "entrance_exams_scholarships",
+            "questions": [
+                "Is there a scholarship at DSU?",
+                "Does DSU give scholarships?",
+                "Scholarship for BCA students",
+                "Law scholarship at DSU"
+            ],
+            "answer": "The fee page marks a scholarship as available for B.A. LL.B and B.B.A. LL.B, with DSAT scores accepted. I couldn't verify scholarships for other programmes, including SCA, so please use the enquiry form for those.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_HOSTEL",
+            "scope": "university",
+            "intent": "hostel_facilities",
+            "questions": [
+                "Does DSU provide hostel facilities?",
+                "Tell me about accommodation",
+                "Where is the DSU hostel?",
+                "Hostel handbook",
+                "Is hostel available at DSU?"
+            ],
+            "answer": "DSU provides hostel facilities at the Harohalli Main Campus, with a hostel handbook and fee circular on the DSU website (handbook: https://www.dsu.edu.in/images/Admission/brochures/Harohalli_Hostel_Student_handbook.pdf). I couldn't verify hostel availability at the Kudlu Gate campus.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_HOSTEL_FEES",
+            "scope": "university",
+            "intent": "hostel_facilities",
+            "questions": [
+                "What are the hostel fees?",
+                "How much is the hostel fee at DSU?",
+                "Hostel fee for 2026-27",
+                "Hostel charges"
+            ],
+            "answer": "DSU publishes hostel fees in a circular on its website (https://www.dsu.edu.in/images/PDF/Hostel_Circulars_.pdf), but I couldn't verify the exact figures here, so I won't quote any. Please check the circular or fill out the enquiry form.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": "https://www.dsu.edu.in/images/PDF/Hostel_Circulars_.pdf",
+            "status": "not_verified"
+        },
+        {
+            "id": "UNI_TRANSPORT",
+            "scope": "university",
+            "intent": "transport_facilities",
+            "questions": [
+                "Does DSU provide bus facility?",
+                "Is there college transport?",
+                "Transport fee at DSU",
+                "Bus routes for the Kudlu Gate campus",
+                "Is there pickup and drop for students?"
+            ],
+            "answer": "I couldn't find verified transport details (routes, timings or fees) on the official pages I checked, so I won't guess. Please fill out the enquiry form and the university team can assist.",
+            "answer_mode": "static",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": null,
+            "status": "not_verified"
+        },
+        {
+            "id": "UNI_FACILITIES",
+            "scope": "university",
+            "intent": "campus_facilities",
+            "questions": [
+                "What facilities are available on campus?",
+                "Is there a gym on campus?",
+                "Is there a healthcare facility on campus?",
+                "Tell me about campus life",
+                "Is the campus Wi-Fi enabled?"
+            ],
+            "answer": "DSU's website lists these university facilities: Wi-Fi campus, computer labs, digital libraries, seminar halls and auditorium, in-campus hostels, a healthcare facility with insurance, a fitness centre, sports facilities, a research centre, and centres for innovation, leadership, foreign languages and entrepreneurship. The list doesn't say which campus has which facility.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/commerce-management/bba/facilities-features",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_LIBRARY_SPORTS",
+            "scope": "university",
+            "intent": "campus_facilities",
+            "questions": [
+                "Does DSU have a library?",
+                "Tell me about sports facilities",
+                "What sports are available at DSU?",
+                "Library timings"
+            ],
+            "answer": "DSU lists digital libraries and sports facilities among its campus facilities. Library details are on https://www.dsu.edu.in/student-life/library and sports details are in https://www.dsu.edu.in/images/University/Sports_Facilities.pdf. I can't confirm timings or specific sports here.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/student-life/library",
+            "status": "source_checked_partial"
+        },
+        {
+            "id": "UNI_INNOVATION_LABS",
+            "scope": "university",
+            "intent": "campus_facilities",
+            "questions": [
+                "What labs and innovation centres does DSU have?",
+                "Does DSU have an NVIDIA lab?",
+                "Tell me about DSU innovation labs",
+                "IBM lab at DSU"
+            ],
+            "answer": "DSU's Innovation Labs page lists the Automotive Systems Lab, Design and Innovation Centre, VMware IT Academy, Automation Technologies, IBM Software Lab for Emerging Technologies, NVIDIA - Boston Innovation Lab, GE Advanced Healthcare Simulation Lab, Aerospace Engineering Lab and IBM Centre of Excellence. More details: https://www.dsu.edu.in/coe/innovation-labs",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/coe/innovation-labs",
+            "status": "source_checked"
+        },
+        {
+            "id": "UNI_INTERNATIONAL",
+            "scope": "university",
+            "intent": "admissions_process",
+            "questions": [
+                "How can NRI students apply?",
+                "International admissions at DSU",
+                "Foreign student admission",
+                "Contact for NRI admissions"
+            ],
+            "answer": "DSU has a dedicated international / NRI admissions desk. You can call +91 9606022149, +91 9606022150 or +91 9606022152.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "UNI_ANTI_RAGGING",
+            "scope": "university",
+            "intent": "campus_facilities",
+            "questions": [
+                "Is there an anti-ragging helpline?",
+                "Is ragging allowed at DSU?",
+                "Anti ragging committee",
+                "Anti ragging helpline number"
+            ],
+            "answer": "DSU lists the National Anti Ragging Helpline as 1800-180-5522.",
+            "answer_mode": "static",
+            "show_enquiry_form": false,
+            "form_policy": "never",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "source_checked"
+        },
+        {
+            "id": "UNI_LEADERSHIP",
+            "scope": "university",
+            "intent": "other_department_faculty",
+            "questions": [
+                "Who are the Pro Vice Chancellors?",
+                "Who is the Vice Chancellor of DSU?",
+                "Who is the Registrar?",
+                "DSU leadership"
+            ],
+            "answer": null,
+            "answer_mode": "dynamic",
+            "dynamic_handler": "llm",
+            "instruction": "DSU's official leadership menu lists Pro Vice Chancellors Prof. R Janardhan and Dr. Prakash S. For the Chancellor, Pro Chancellor, Vice Chancellor, Registrar and other roles, check the current official leadership pages before answering and say so if a name cannot be verified.",
+            "show_enquiry_form": false,
+            "form_policy": "on_failure",
+            "source": "https://www.dsu.edu.in/about-us/dsu",
+            "status": "dynamic_lookup_required"
+        },
+        {
+            "id": "GEN001",
+            "scope": "other_schools",
+            "intent": "other_department_courses",
+            "questions": [
+                "What courses are offered by the School of Engineering?",
+                "Tell me about the School of Health Sciences",
+                "Which courses are offered by the School of Law?",
+                "What does the School of Commerce and Management offer?",
+                "Does DSU offer MBA?",
+                "Does DSU have nursing?"
+            ],
+            "answer": null,
+            "answer_mode": "dynamic",
+            "dynamic_handler": "llm",
+            "instruction": "Answer using current official DSU sources. Identify the school and requested programme. Use college_info.schools as grounding, and say so if the information cannot be verified.",
+            "show_enquiry_form": false,
+            "form_policy": "on_failure",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "dynamic_lookup_required"
+        },
+        {
+            "id": "GEN002",
+            "scope": "other_schools",
+            "intent": "other_department_fees",
+            "questions": [
+                "What is the fee for BTech CSE?",
+                "How much does BBA cost?",
+                "What is the fee for MBA?",
+                "Tell me the 2026-27 fees for Law courses",
+                "B.Pharm fees at DSU",
+                "How much does Engineering cost at DSU?"
+            ],
+            "answer": null,
+            "answer_mode": "dynamic",
+            "dynamic_handler": "llm_fee_lookup",
+            "instruction": "Check official DSU fee information for 2026-27 (https://www.dsu.edu.in/eligibility). Confirm the exact course, and for programmes with fee_varies_by_specialisation in college_info, confirm the exact specialisation and admission category. Never reuse another course's fee. If unverified, display college_info.enquiry.fee_fallback_message and the enquiry form.",
+            "show_enquiry_form": false,
+            "form_policy": "on_failure",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "dynamic_lookup_required"
+        },
+        {
+            "id": "GEN003",
+            "scope": "other_schools",
+            "intent": "course_location",
+            "questions": [
+                "Where is BTech CSE located?",
+                "Where is the School of Law located?",
+                "Which campus has MBA?",
+                "Where are Engineering classes conducted?",
+                "Which campus is B.Pharm on?"
+            ],
+            "answer": null,
+            "answer_mode": "dynamic",
+            "dynamic_handler": "llm",
+            "instruction": "Look up the specific course on the official 2026 admissions page (https://www.dsu.edu.in/c3/) and return its teaching campus, using college_info.campuses and college_info.schools as grounding. Do not confuse an admissions office with a teaching campus.",
+            "show_enquiry_form": false,
+            "form_policy": "on_failure",
+            "source": "https://www.dsu.edu.in/c3/",
+            "status": "dynamic_lookup_required"
+        },
+        {
+            "id": "GEN004",
+            "scope": "other_schools",
+            "intent": "other_department_faculty",
+            "questions": [
+                "Who is the Dean of Engineering?",
+                "Who heads the School of Law?",
+                "Tell me about faculty in Health Sciences",
+                "Who is the head of the MBA programme?"
+            ],
+            "answer": null,
+            "answer_mode": "dynamic",
+            "dynamic_handler": "llm",
+            "instruction": "Check the current official DSU faculty or leadership page before answering. If the name or role cannot be verified, say so and offer the enquiry form.",
+            "show_enquiry_form": false,
+            "form_policy": "on_failure",
+            "source": null,
+            "status": "dynamic_lookup_required"
+        },
+        {
+            "id": "GEN005",
+            "scope": "general",
+            "intent": "admissions_eligibility",
+            "questions": [
+                "Eligibility for B.Tech CSE",
+                "What is the eligibility for MBA?",
+                "Who can apply for B.Pharm?",
+                "Eligibility for LLB",
+                "What marks do I need for admission to DSU?"
+            ],
+            "answer": null,
+            "answer_mode": "dynamic",
+            "dynamic_handler": "llm",
+            "instruction": "Look up the programme's eligibility on https://www.dsu.edu.in/eligibility. Quote only what the page states and say so if the programme or criteria cannot be found.",
+            "show_enquiry_form": false,
+            "form_policy": "on_failure",
+            "source": "https://www.dsu.edu.in/eligibility",
+            "status": "dynamic_lookup_required"
+        },
+        {
+            "id": "GEN006",
+            "scope": "general",
+            "intent": "enquiry",
+            "questions": [
+                "I want to make an enquiry",
+                "I need more information about a course",
+                "How can I submit my query to DSU?",
+                "I want someone to answer my query",
+                "Can someone from the university contact me?"
+            ],
+            "answer": "Please fill out the enquiry form so your question can be directed to the appropriate university team.",
+            "answer_mode": "form",
+            "form_fields_ref": "college_info.enquiry.fields",
+            "show_enquiry_form": true,
+            "form_policy": "always",
+            "source": null,
+            "status": "source_checked"
+        }
+    ]
+}
