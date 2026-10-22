@@ -51,10 +51,11 @@ class Settings(BaseSettings):
     database_url: Optional[str] = None
 
     # Admission Cell Admin & Security Settings (Stage 5)
-    secret_key: str = "***REMOVED***"
+    # Admission Cell Admin & Security Settings (Stage 5)
+    secret_key: str
     admin_username: str = "admin"
-    admin_password: str = "***REMOVED***"
-    admin_email: str = "admissions@dsu.edu.in"
+    admin_password: str
+    admin_email: str
     access_token_expire_minutes: int = 480
 
 
