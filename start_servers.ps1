@@ -61,8 +61,8 @@ Write-Host " Website 1 (Student Chatbot):      http://127.0.0.1:5500" -Foregroun
 Write-Host " Website 2 (Admission Cell Portal): http://127.0.0.1:5501" -ForegroundColor White
 Write-Host " Shared FastAPI Backend:           http://127.0.0.1:8000" -ForegroundColor White
 Write-Host " Shared PostgreSQL Database:       localhost:5432 / dsu_chatbot" -ForegroundColor White
-Write-Host "`n Demo Staff Credentials (for http://127.0.0.1:5501):" -ForegroundColor Yellow
-Write-Host "   Username: admin" -ForegroundColor Yellow
-Write-Host "   Password: ***REMOVED***" -ForegroundColor Yellow
+Write-Host "`n Demo Staff Login (for http://127.0.0.1:5501):" -ForegroundColor Yellow
+Write-Host "   Username: Use your configured admin username" -ForegroundColor Yellow
+Write-Host "   Password: Check your local configuration" -ForegroundColor Yellow
 Write-Host "`n To stop all servers cleanly, run: .\stop_servers.ps1" -ForegroundColor Gray
 Write-Host "=====================================================================" -ForegroundColor Green
